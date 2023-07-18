@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>SkillCraft | India</title>
+		<link rel="stylesheet" href="./styles/index.css" />
+	</head>
+	<body>
+		<nav>
+			<div id="topNav">
+				<img src="./images/skilcraft-logo.png" alt="" />
+				<div>
+					<p onclick="showSkills()">Skills</p>
+					<p onclick="showCourses()">Courses</p>
+					<p onclick="showPlans()">Plans</p>
+				</div>
+				<div>
+					<button>
+						<ion-icon name="search-outline"></ion-icon>Search
+					</button>
+					<hr />
+					<div id="user"  onclick="redirect()">
+						<img src="./images/nav-profile-image.svg" alt="" />
+						<span>Sign In</span>
+					</div>
+				</div>
+			</div>
+			<div id="bottomNav">
+				<hr />
+				<div></div>
+				<ion-icon
+					name="arrow-up-outline"
+					id="hide"
+					onclick="hideBottomNav()"
+				></ion-icon>
+			</div>
+		</nav>
+		<header>
+			<div>
+				<h1>
+					SkillCraft empowers you to <br />
+					<span>learn faster</span>
+				</h1>
+				<h2>
+					Learn & Develop critical skills. Cut cycle times. Build happier,
+					healthier teams. <br />And transform your goals into gains. All
+					with SkillCraft.
+				</h2>
+				<button>
+					Get Started<ion-icon name="arrow-forward-outline"></ion-icon>
+				</button>
+				<br />
+				<img src="./images/homepage-hero-composite-image-only.png" alt="" />
+			</div>
+			<div>
+				<h3>Organizations we’ve helped:</h3>
+				<div>
+					<img
+						src="https://www.pluralsight.com/content/dam/pluralsight2/homepage/2022-webp/organization-logos/dell-logo.webp"
+						alt=""
+					/>
+					<img
+						src="https://www.pluralsight.com/content/dam/pluralsight2/homepage/2022-webp/organization-logos/ge-logo.webp"
+						alt=""
+					/><img
+						src="https://www.pluralsight.com/content/dam/pluralsight2/homepage/2022-webp/organization-logos/fedex-logo.webp"
+						alt=""
+					/><img
+						src="https://www.pluralsight.com/content/dam/pluralsight2/homepage/2022-webp/organization-logos/ford-logo.webp"
+						alt=""
+					/><img
+						src="https://www.pluralsight.com/content/dam/pluralsight2/homepage/2022-webp/organization-logos/bt-logo.webp"
+						alt=""
+					/>
+				</div>
+			</div>
+		</header>
+	</body>
+	<script
+		type="module"
+		src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+	></script>
+	<script
+		nomodule
+		src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+	></script>
+</html>
+<script src="./scripts/index.js"></script>
