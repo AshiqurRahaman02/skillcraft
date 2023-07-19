@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Skill Page</title>
+
+  <style>
+    .skill-container {
+      width: 600px;
+      margin: 0 auto;
+      background: #ffffff;
+      padding: 30px;
+      border-radius: 10px;
+    }
+
+    .skill-title {
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .skill-description {
+      font-size: 16px;
+      line-height: 1.5;
+    }
+
+    .skill-progress-bar {
+      width: 100%;
+      height: 20px;
+      background-color: #d3d3d3;
+    }
+
+    .skill-progress-bar-fill {
+      width: 75%;
+      height: 20px;
+      background-color: #4caf50;
+    }
+
+    .like-button {
+      float: right;
+      margin-right: 16px;
+    }
+  </style>
+
+  <script>
+    var skillContainer = document.querySelector(".skill-container");
+
+    skillContainer.addEventListener('click', function() {
+      var skillTitle = document.querySelector(".skill-title");
+      var skillDescription = document.querySelector(".skill-description");
+      var skillProgressBar = document.querySelector(".skill-progress-bar");
+      var skillProgressBarFill = document.querySelector(".skill-progress-bar-fill");
+
+      skillTitle.textContent = "JavaScript";
+      skillDescription.textContent = "JavaScript is a programming language used to create interactive web pages.";
+      skillProgressBar.style.width = "75%";
+      skillProgressBarFill.style.width = "75%";
+    });
+  </script>
+
+</head>
+<body>
+
+<div class="skill-container">
+
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/HTML5_logo.svg/1200px-HTML5_logo.svg.png" alt="HTML logo">
+
+  <h2 class="skill-title">HTML</h2>
+
+  <p class="skill-description">
+    HTML is the language of the web. It's used to create the structure of a web page, including the text, images, and other elements.
+  </p>
+
+  <div class="skill-progress-bar">
+    <div class="skill-progress-bar-fill"></div>
+  </div>
+
+  <button class="like-button">
+    <i class="far fa-thumbs-up"></i>
+  </button>
+
+</div>
+
+</body>
+</html>
