@@ -4,7 +4,7 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Sign In</title>
-		<link rel="stylesheet" href="../styles/sign.css" />
+		<link rel="stylesheet" href="../styles/signin.css" />
 		<link
 			rel="stylesheet"
 			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -29,7 +29,7 @@
 						type="text"
 						class="input-field"
 						placeholder="Email ID"
-						required
+						
 					/>
 					<span id="forEmail1" style="visibility: hidden"
 						>please enter a valid email</span
@@ -39,7 +39,7 @@
 						type="password"
 						class="input-field"
 						placeholder="Enter Password"
-						required
+						
 					/>
 					<span id="forPassword1" style="visibility: hidden"
 						>please enter correct password</span
@@ -64,11 +64,11 @@
 					<div id="oAuth">
 						<button id="google-auth-btn" type="submit" class="google-btn">
 							<img src="../images/google.png" alt="" />
-							<span>Google</span>
+							<span><a href="http://localhost:8080/auth/google">Google</a></span>
 						</button>
 						<button id="github-auth-btn" type="submit" class="github-btn">
 							<img src="../images/github.png" alt="" />
-							<span>Github</span>
+							<span><a href="https://github.com/login/oauth/authorize?client_id=e969e0187a8b8ce20b01">Github</a></span>
 						</button>
 					</div>
 				</form>
@@ -122,11 +122,11 @@
 					<div id="oAuth">
 						<button id="google-auth-btn" type="submit" class="google-btn">
 							<img src="../images/google.png" alt="" />
-							<span>Google</span>
+							<span><a href="http://localhost:8080/auth/google">Google</a></span>
 						</button>
 						<button id="github-auth-btn" type="submit" class="github-btn">
 							<img src="../images/github.png" alt="" />
-							<span>Github</span>
+							<span><a href="https://github.com/login/oauth/authorize?client_id=e969e0187a8b8ce20b01">Github</a></span>
 						</button>
 					</div>
 				</form>
@@ -170,4 +170,4 @@
 		src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
 	></script>
 </html>
-<script src="../scripts/sign.js"></script>
+<script src="../scripts/signin.js"></script>
