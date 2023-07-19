@@ -2,9 +2,9 @@ const userDetails = JSON.parse(localStorage.getItem('userDetails')) || null;
 
 const redirect = () => {
     if(userDetails){
-        window.location.href = "/pages/account.html"
+        window.location.href = "./pages/account.html"
     }else{
-        window.location.href = "/pages/sign.html"
+        window.location.href = "./pages/signin.html"
     }
 }
 
