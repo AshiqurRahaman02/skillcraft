@@ -148,6 +148,10 @@ p{
     font-size: 20px;
     top: -15px;
 }
+.google-btn a,.github-btn a{
+   color: #fafafa;
+   text-decoration: none;
+}
 .checkbox{
     position: relative;
     top: 2px;
