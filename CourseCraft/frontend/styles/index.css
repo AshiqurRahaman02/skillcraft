@@ -1,20 +1,192 @@
 body {
-  margin: 0;
-  padding: 0;
-  /* background-color: #1b1834; */
+	margin: 0;
+	padding: 0;
+	background-color: #1b1834;
+
 }
-::-webkit-scrollbar{
-    display: none;
-    width: 3px;
-    background-color: #000000;
+::-webkit-scrollbar {
+	display: none;
+	width: 3px;
+	background-color: #000000;
 }
-:hover::-webkit-scrollbar{
-    display: block;
+:hover::-webkit-scrollbar {
+	display: block;
 }
-::-webkit-scrollbar-thumb{
-    background-color: #ffffff;
-    border-radius: 10px;
+::-webkit-scrollbar-thumb {
+	background-color: #ffffff;
+	border-radius: 10px;
 }
+
+
+/* **********************nav************************* */
+nav {
+	background-color: #1b1834;
+	position: sticky;
+	top: 0;
+	padding: 10px 20px;
+}
+
+#topNav {
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+}
+
+#topNav > img {
+	width: 20%;
+}
+
+#topNav > div:nth-child(2) {
+	width: 20%;
+	display: flex;
+	justify-content: space-between;
+	padding: 1%;
+	/* border: 1px solid red; */
+	border-radius: 10px;
+	height: fit-content;
+}
+#topNav > div:nth-child(2):hover > p:not(:hover) {
+	opacity: 0.2;
+}
+#topNav > div > p {
+	color: white;
+	border: #585fa2 1px solid;
+	height: fit-content;
+	margin: 0px;
+	padding: 10px;
+	border-radius: 10px;
+	cursor: pointer;
+}
+
+#topNav > div:nth-child(3) {
+	width: 20%;
+	display: flex;
+	padding: 1%;
+	border-radius: 10px;
+	height: fit-content;
+	/* border: 1px solid red; */
+}
+#topNav > div:nth-child(3) > button {
+	width: fit-content;
+	padding: 10px;
+	border-radius: 10px;
+	font-size: 17px;
+	background-color: transparent;
+	border: 0px;
+	/* box-shadow: rgba(255, 255, 255, 0.24) 0px 3px 8px; */
+	color: white;
+	border: #585fa2 1px solid;
+	cursor: pointer;
+}
+#topNav > div:nth-child(3) > button > ion-icon {
+	position: relative;
+	top: 3px;
+	margin-right: 5px;
+}
+#user {
+	color: white;
+	border: #585fa2 1px solid;
+	width: fit-content;
+	padding: 10px;
+	border-radius: 10px;
+	cursor: pointer;
+}
+#user > img {
+	margin-right: 10px;
+}
+#user > span {
+	position: relative;
+	top: -5px;
+	font-size: 17px;
+}
+
+#bottomNav {
+	display: none;
+}
+#bottomNav > hr {
+	margin-right: 15px;
+	text-align: left;
+	border: #585fa2 1px solid;
+}
+#bottomNav > div > ion-icon {
+	color: white;
+	width: 25px;
+	height: 30px;
+	position: relative;
+	top: 10px;
+}
+#bottomNav > div {
+	border-bottom: 2px solid #585fa2;
+	height: 60px;
+	margin-right: 15px;
+	padding-bottom: 5px;
+}
+#bottomNav > div > input {
+	width: 94%;
+	height: 30px;
+	outline: none;
+	border: 0px;
+	background-color: transparent;
+	color: white;
+	font-size: 19px;
+	margin-right: 1%;
+	margin-top: 20px;
+}
+#bottomNav > div > input::placeholder {
+	font-size: 19px;
+	color: white;
+}
+#hide {
+	color: white;
+	width: 25px;
+	height: 30px;
+	position: absolute;
+	top: 125px;
+	left: 95%;
+	background-color: #526cdf;
+	padding: 0px 3px;
+	border-radius: 50%;
+	cursor: pointer;
+}
+#bottomNav > div > a {
+	color: white;
+	text-decoration: none;
+	width: fit-content;
+	height: fit-content;
+	padding: 10px;
+	/* font-size: 17px; */
+	border: #585fa2 1px solid;
+	border-radius: 10px;
+	cursor: pointer;
+	margin-right: 20px;
+}
+#bottomNav > div > a > img {
+	width: 30px;
+	border-radius: 5px;
+	background-color: white;
+	position: relative;
+	top: 10px;
+	margin-right: 10px;
+}
+#aws {
+	height: 30px;
+}
+#bottomNav > div > a > span {
+	margin-bottom: 5px;
+}
+#bottomNav > div > h1 > span {
+	font-size: 20px;
+	color: white;
+	text-decoration: none;
+	width: fit-content;
+	height: fit-content;
+	padding: 10px;
+	/* font-size: 17px; */
+	border: #585fa2 1px solid;
+	border-radius: 10px;
+	cursor: pointer;
+	margin-right: 20px;
+	margin-top: 30px;
 
 
 /* **********************nav************************* */
@@ -186,10 +358,59 @@ nav {
   cursor: pointer;
   margin-right: 20px;
   margin-top: 30px;
+
 }
 
 /* **********************header************************* */
 header {
+	height: max-content;
+	background: radial-gradient(farthest-side at top left, #1b1834, transparent),
+		radial-gradient(farthest-side at top right, #dc19779f, transparent 500px),
+		radial-gradient(farthest-side at bottom right, #42f4fa93, transparent),
+		radial-gradient(farthest-corner at bottom left, #dc1976, transparent);
+	text-align: center;
+	padding: 50px 0px;
+}
+header > div:nth-child(1) {
+	width: 94%;
+	margin: auto;
+	padding-top: 50px;
+	background-color: rgba(24, 23, 23, 0.2);
+	border-radius: 20px;
+	color: #fffff1;
+	font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+		Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+header > div:nth-child(1) > h1 {
+	font-size: 70px;
+}
+header > div:nth-child(1) > h2 {
+	font-size: 25px;
+}
+header > div:nth-child(1) > button {
+	font-size: 20px;
+	font-weight: 500;
+	border: 0px;
+	border-radius: 30px;
+	padding: 10px;
+	background-color: #dc1976;
+	color: #fffff1;
+	cursor: pointer;
+}
+header > div:nth-child(2) > div {
+	display: grid;
+	grid-template-columns: repeat(5, 1fr);
+	gap: 50px;
+	width: max-content;
+	height: max-content;
+	margin: auto;
+}
+header > div:nth-child(2) > div > img {
+	width: 90px;
+	padding: 5px;
+	aspect-ratio: 3/2;
+	object-fit: contain;
+=======
   height: max-content;
   background: radial-gradient(farthest-side at top left, #1b1834, transparent),
     radial-gradient(farthest-side at top right, #dc19779f, transparent 500px),
@@ -242,287 +463,295 @@ header > div:nth-child(2) > div > img {
 
 /* ******************************section 1********************************** */
 
-#section1{
-    background-color: white;
-    display: flex;
-    height: 70vh;
-    align-items: center;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+#section1 {
+	background-color: white;
+	display: flex;
+	height: 70vh;
+	align-items: center;
+	font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+		Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
-#section1>div:nth-child(1){
-    margin-left: 10%;
+#section1 > div:nth-child(1) {
+	margin-left: 10%;
 }
-#section1>div:nth-child(1)>h1{
-    font-size: 100px;
-    color: #1B1834;
-    margin-bottom: 30px;
+#section1 > div:nth-child(1) > h1 {
+	font-size: 100px;
+	color: #1b1834;
+	margin-bottom: 30px;
 }
-#section1>div:nth-child(1)>p{
-    font-style: italic;
-    font-size: 20px;
-    color: #000010;
-    margin-bottom: 30px;
+#section1 > div:nth-child(1) > p {
+	font-style: italic;
+	font-size: 20px;
+	color: #000010;
+	margin-bottom: 30px;
 }
-#section1>div:nth-child(1)>button{
-    font-size: 20px;
-    font-weight: 500;
-    border: 0px;
-    border-radius: 30px;
-    padding: 10px 15px;
-    background-color: #DC1976;
-    color: #fffff1;
-    cursor: pointer;
+#section1 > div:nth-child(1) > button {
+	font-size: 20px;
+	font-weight: 500;
+	border: 0px;
+	border-radius: 30px;
+	padding: 10px 15px;
+	background-color: #dc1976;
+	color: #fffff1;
+	cursor: pointer;
 }
-#section1>div:nth-child(1)>button>ion-icon{
-    position: relative;
-    top: 3px;
-}
-
-#section2{
-    background-color: white;
-    display: flex;
-    height: 90vh;
-    align-items: center;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-}
-#section2>div:nth-child(1){
-    width: 45%;
-    margin-left: 10%;
-    margin-right: 5%;
-}
-#section2>div:nth-child(1)>img{
-    width: 100%;
-}
-#section2>div:nth-child(2){
-    width: 50%;
-    margin-right: 5%;
-}
-#section2>div:nth-child(2)>h3{
-    font-size: 29px;
-    color: #DC1976;
-    margin-bottom: 30px;
-    position: relative;
-    top: 50px;
-}
-#section2>div:nth-child(2)>h1{
-    font-size: 70px;
-    color: #1B1834;
-    margin-bottom: 30px;
-}
-#section2>div:nth-child(2)>p{
-    font-style: italic;
-    font-size: 20px;
-    color: #000010;
-    margin-bottom: 30px;
-}
-#section2>div:nth-child(2)>button{
-    font-size: 20px;
-    font-weight: 500;
-    border: 0px;
-    border-radius: 30px;
-    padding: 10px 15px;
-    background-color: #DC1976;
-    color: #fffff1;
-    cursor: pointer;
-}
-#section2>div:nth-child(2)>button>img{
-    position: relative;
-    width: 10%;
-    margin-right: 10px;
-    top: 3px;
-}
-#section2>div:nth-child(2)>button>ion-icon{
-    position: relative;
-    top: 3px;
+#section1 > div:nth-child(1) > button > ion-icon {
+	position: relative;
+	top: 3px;
 }
 
-#section3{
-    background-color: rgb(238, 232, 232);
-    height: 120vh;
-    align-items: center;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+#section2 {
+	background-color: white;
+	display: flex;
+	height: 90vh;
+	align-items: center;
+	font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+		Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
-#section3>h1{
-    margin: 0;
-    padding: 50px;
-    font-size: 70px;
-    text-align: center;
+#section2 > div:nth-child(1) {
+	width: 45%;
+	margin-left: 10%;
+	margin-right: 5%;
 }
-#section3>div{
-    display: flex;
-    width: 93%;
-    margin: auto;
-    justify-content: space-around;
+#section2 > div:nth-child(1) > img {
+	width: 100%;
 }
-#section3>div>div{
-    width: 33%;
-    background-color: white;
-    border-radius: 20px;
-    padding: 20px;
+#section2 > div:nth-child(2) {
+	width: 50%;
+	margin-right: 5%;
 }
-#section3>div>div>div>a{
-     display: block;
-     color: #000;
-     text-decoration: none;
-     display: flex;
-     justify-content: space-between;
+#section2 > div:nth-child(2) > h3 {
+	font-size: 29px;
+	color: #dc1976;
+	margin-bottom: 30px;
+	position: relative;
+	top: 50px;
 }
-
-#section3>div>div>div>button{
-    margin-top: 30px;
-    font-size: 20px;
-    font-weight: 500;
-    border: 0px;
-    border-radius: 30px;
-    padding: 10px 15px;
-    background-color: #DC1976;
-    color: #fffff1;
-    cursor: pointer;
+#section2 > div:nth-child(2) > h1 {
+	font-size: 70px;
+	color: #1b1834;
+	margin-bottom: 30px;
 }
-
-#section4>div{
-    width: 90%;
-    margin: 30px auto;
-    padding-top: 30px;
-    border-radius: 30px;
-    background: linear-gradient(to right, #DC1976, #FF700E);
+#section2 > div:nth-child(2) > p {
+	font-style: italic;
+	font-size: 20px;
+	color: #000010;
+	margin-bottom: 30px;
 }
-#section4>div>div:nth-child(1){
-    text-align: center;
+#section2 > div:nth-child(2) > button {
+	font-size: 20px;
+	font-weight: 500;
+	border: 0px;
+	border-radius: 30px;
+	padding: 10px 15px;
+	background-color: #dc1976;
+	color: #fffff1;
+	cursor: pointer;
 }
-#section4>div>div:nth-child(2){
-    display: flex;
-    margin-left: 30px;
+#section2 > div:nth-child(2) > button > img {
+	position: relative;
+	width: 10%;
+	margin-right: 10px;
+	top: 3px;
 }
-#section4>div>div:nth-child(2)>div{
-    width: 50%;
-}
-#icons{
-    display: grid;
-    grid-template-columns: repeat(2,1fr);
-    gap: 30px;
-    margin-bottom: 50px;
-}
-#icons>div{
-    display: flex;
-
-}
-#icons>div>img{
-    width: 20%;
-    margin-right: 20px;
-}
-#icons~div>button{
-    margin-top: 30px;
-    font-size: 20px;
-    font-weight: 500;
-    border: 0px;
-    border-radius: 30px;
-    padding: 20px 25px;
-    color: #fffff1;
-    cursor: pointer;
-}
-#icons~div>button:nth-child(1){
-    background-color: #1B1834;
-    margin-right: 50px;
-}
-#icons~div>button:nth-child(2){
-    background-color: transparent;
-    border: 1px solid white;
+#section2 > div:nth-child(2) > button > ion-icon {
+	position: relative;
+	top: 3px;
 }
 
-footer{
-    width: 90%;
-    margin: auto;
-    background: radial-gradient(
-        farthest-side at top left,
-        #1B1834, 
-        transparent 
-      ),
-      radial-gradient(
-        farthest-side at top right,
-        #dc19779f, 
-        transparent 500px
-      ),
-      radial-gradient(
-        farthest-side at bottom right,
-        #42f4fa93, 
-        transparent 
-      ),
-      radial-gradient(
-        farthest-corner at bottom left,
-        #DC1976, 
-        transparent 
-      );
-    border-radius: 30px;
+#section3 {
+	background-color: rgb(238, 232, 232);
+	height: 120vh;
+	align-items: center;
+	font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+		Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+#section3 > h1 {
+	margin: 0;
+	padding: 50px;
+	font-size: 70px;
+	text-align: center;
+}
+#section3 > div {
+	display: flex;
+	width: 93%;
+	margin: auto;
+	justify-content: space-around;
+}
+#section3 > div > div {
+	width: 33%;
+	background-color: white;
+	border-radius: 20px;
+	padding: 20px;
+}
+#section3 > div > div > div > a {
+	display: block;
+	color: #000;
+	text-decoration: none;
+	display: flex;
+	justify-content: space-between;
 }
 
-#topFooter{
-    display: flex;
-    gap: 50px;
-    width: 90%;
-    margin: auto;
-    justify-content: space-around;
-    margin-bottom: 30px ;
-}
-#topFooter>div>h1{
-    color: white;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-}
-#topFooter>div>a{
-    color: white;
-    display: block;
-    text-decoration: none;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-}
-#topFooter>div>label{
-    margin: 20px 0px 10px 0px;
-    color: white;
-    display: block;
-    text-decoration: none;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-}
-#topFooter>div>input{
-    width: 80%;
-    height: 30px;
-    background-color: transparent;
-    border: 0px;
-    border-bottom: 2px solid white;
-    font-size: 17px;
-    outline: none;
-
+#section3 > div > div > div > button {
+	margin-top: 30px;
+	font-size: 20px;
+	font-weight: 500;
+	border: 0px;
+	border-radius: 30px;
+	padding: 10px 15px;
+	background-color: #dc1976;
+	color: #fffff1;
+	cursor: pointer;
 }
 
-#topFooter>div>button{
-    margin: 20px 0px;
-    font-size: 20px;
-    font-weight: 500;
-    border: 1px solid white;
-    background-color: transparent;
-    border-radius: 30px;
-    padding: 10px 15px;
-    color: #fffff1;
-    cursor: pointer;
+#section4 > div {
+	width: 90%;
+	margin: 30px auto;
+	padding-top: 30px;
+	border-radius: 30px;
+	background: linear-gradient(to right, #dc1976, #ff700e);
 }
-#topFooter>div>div:hover>img:not(:hover){
-    opacity: 0.2;
+#section4 > div > div:nth-child(1) {
+	text-align: center;
 }
-#topFooter>div img{
-    margin-right: 10px;
-    cursor: pointer;
-    padding: 10px 5px;
-    border-radius: 50%;
-    background-color: #1B1834;
-    width: 40px;
-    aspect-ratio: 3/2;
-    object-fit: contain;
+#section4 > div > div:nth-child(2) {
+	display: flex;
+	margin-left: 30px;
+}
+#section4 > div > div:nth-child(2) > div {
+	width: 50%;
+}
+#icons {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 30px;
+	margin-bottom: 50px;
+}
+#icons > div {
+	display: flex;
+}
+#icons > div > img {
+	width: 20%;
+	margin-right: 20px;
+}
+#icons ~ div > button {
+	margin-top: 30px;
+	font-size: 20px;
+	font-weight: 500;
+	border: 0px;
+	border-radius: 30px;
+	padding: 20px 25px;
+	color: #fffff1;
+	cursor: pointer;
+}
+#icons ~ div > button:nth-child(1) {
+	background-color: #1b1834;
+	margin-right: 50px;
+}
+#icons ~ div > button:nth-child(2) {
+	background-color: transparent;
+	border: 1px solid white;
 }
 
-
-
-#topFooter~hr{
-    width: 90%;
+footer {
+	width: 90%;
+	margin: auto;
+	background: radial-gradient(farthest-side at top left, #1b1834, transparent),
+		radial-gradient(farthest-side at top right, #dc19779f, transparent 500px),
+		radial-gradient(farthest-side at bottom right, #42f4fa93, transparent),
+		radial-gradient(farthest-corner at bottom left, #dc1976, transparent);
+	border-radius: 30px;
 }
 
+#topFooter {
+	display: flex;
+	gap: 50px;
+	width: 90%;
+	margin: auto;
+	justify-content: space-around;
+	margin-bottom: 30px;
+}
+#topFooter > div > h1 {
+	color: white;
+	font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+		Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+#topFooter > div > a {
+	color: white;
+	display: block;
+	text-decoration: none;
+	font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+		Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+#topFooter > div > label {
+	margin: 20px 0px 10px 0px;
+	color: white;
+	display: block;
+	text-decoration: none;
+	font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+		Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+#topFooter > div > input {
+	width: 80%;
+	height: 30px;
+	background-color: transparent;
+	border: 0px;
+	border-bottom: 2px solid white;
+	font-size: 17px;
+	outline: none;
+}
+
+#topFooter > div > button {
+	margin: 20px 0px;
+	font-size: 20px;
+	font-weight: 500;
+	border: 1px solid white;
+	background-color: transparent;
+	border-radius: 30px;
+	padding: 10px 15px;
+	color: #fffff1;
+	cursor: pointer;
+}
+#topFooter > div > div:hover > img:not(:hover) {
+	opacity: 0.2;
+}
+#topFooter > div img {
+	margin-right: 10px;
+	cursor: pointer;
+	padding: 10px 5px;
+	border-radius: 50%;
+	background-color: #1b1834;
+	width: 40px;
+	aspect-ratio: 3/2;
+	object-fit: contain;
+}
+
+#topFooter ~ hr {
+	width: 90%;
+}
+
+#bottomFooter {
+	width: 90%;
+	margin: 30px auto;
+	padding-bottom: 30px;
+	display: flex;
+	justify-content: space-between;
+}
+#bottomFooter > div:nth-child(1) > img {
+	width: 5%;
+}
+#bottomFooter > div:nth-child(1) > span {
+	color: #ffffff;
+	position: relative;
+	left: 8%;
+	top: -10px;
+}
+#bottomFooter > div:nth-child(2) > a {
+	margin-left: 10px;
+	color: white;
+	text-decoration: none;
+}
+=======
 #bottomFooter{
     width: 90%;
     margin: 30px auto;
