@@ -6,13 +6,37 @@ require("dotenv").config();
 
 const userRouter = express.Router();
 
+// get user
+userRouter.get("/get/:id", async (req, res) => {
+	const userId = req.params.id;
+
+	try {
+		const user = await UserModel.findById(userId);
+
+		if (!user) {
+			return res
+				.status(404)
+				.json({ isError: true, message: "User not found" });
+		}
+
+		res.status(200).json({ isError: false, user });
+	} catch (error) {
+		res.status(500).json({ isError: true, message: error.message });
+	}
+});
+
 //register route
 userRouter.post("/register", async (req, res) => {
 	const { email, password, name } = req.body;
 	try {
 		let user = await UserModel.findOne({ email });
 		if (user) {
-			return res.status(404).json({ isError:true, message: "Email already used in this website." });
+			return res
+				.status(404)
+				.json({
+					isError: true,
+					message: "Email already used in this website.",
+				});
 		}
 		bcrypt.hash(password, 5, async (err, hash) => {
 			if (err) throw err;
@@ -20,10 +44,13 @@ userRouter.post("/register", async (req, res) => {
 			console.log(user);
 			await user.save();
 			console.log("User registered successfully");
-			res.status(201).json({isError:false, message: "User registered successfully" });
+			res.status(201).json({
+				isError: false,
+				message: "User registered successfully",
+			});
 		});
 	} catch (error) {
-		res.status(404).json({ isError:true, message: error.message });
+		res.status(404).json({ isError: true, message: error.message });
 	}
 });
 
@@ -35,7 +62,7 @@ userRouter.post("/login", async (req, res) => {
 		bcrypt.compare(password, user.password, (err, result) => {
 			if (result) {
 				res.status(200).json({
-					isError:false, 
+					isError: false,
 					message: "Welcome Back to our website",
 					token: jwt.sign(
 						{ userId: user._id },
@@ -43,9 +70,12 @@ userRouter.post("/login", async (req, res) => {
 					),
 					user,
 				});
-			}else{
-                res.status(401).json({ isError:true, message: "Invalid password" });
-            }
+			} else {
+				res.status(401).json({
+					isError: true,
+					message: "Invalid password",
+				});
+			}
 		});
 	} catch (error) {
 		console.log(error);
@@ -84,7 +114,9 @@ userRouter.post("/forgot_password", async (req, res) => {
 	try {
 		let user = await UserModel.findOne({ email });
 		if (!user) {
-			return res.status(404).json({isError:true, message: "Email not found" });
+			return res
+				.status(404)
+				.json({ isError: true, message: "Email not found" });
 		}
 
 		const temporaryPassword = Math.random().toString(36).slice(-8);
@@ -93,18 +125,17 @@ userRouter.post("/forgot_password", async (req, res) => {
 		user.password = hashedTemporaryPassword;
 		await user.save();
 
-
 		// res.status(200).json({
 		// 	message: "Temporary password sent to your email",
 		// });
-        res.status(200).json({
-			isError:false,
+		res.status(200).json({
+			isError: false,
 			message: "Your password has been changed successfully",
-            password: temporaryPassword
+			password: temporaryPassword,
 		});
 	} catch (error) {
 		console.log(error);
-		res.status(500).json({ isError:true, message: "Internal server error" });
+		res.status(500).json({ isError: true, message: "Internal server error" });
 	}
 });
 
