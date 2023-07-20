@@ -1,11 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Account</title>
-</head>
-<body>
-    
-</body>
+    <link rel="stylesheet" href="../styles/index.css" />
+    <link rel="stylesheet" href="../styles/account.css" />
+  </head>
+  <body>
+    <nav>
+      <div id="topNav">
+        <img src="../images/skilcraft-logo.png" alt="" />
+        <div>
+          <p onclick="showSkills()">Skills</p>
+          <p onclick="showCourses()">Courses</p>
+          <p onclick="showPlans()">Plans</p>
+        </div>
+        <div>
+          <button><ion-icon name="search-outline"></ion-icon>Search</button>
+          <hr />
+          <div id="user" onclick="redirect()">
+            <img src="../images/nav-profile-image.svg" alt="" />
+            <span>Sign In</span>
+          </div>
+        </div>
+      </div>
+      <div id="bottomNav">
+        <hr />
+        <div></div>
+        <ion-icon
+          name="arrow-up-outline"
+          id="hide"
+          onclick="hideBottomNav()"
+        ></ion-icon>
+      </div>
+    </nav>
+    <main>
+      <div id="account_section">
+        <section id="section_1">
+          <div class="profile_details_div">
+            <img src="../images/nav-profile-image.svg" alt="" />
+            <h2>Account</h2>
+          </div>
+          <div class="profile_details_div">
+            <img src="../images/videos-svgrepo-com.svg" alt="" />
+            <h2>Videos</h2>
+          </div>
+          <div class="profile_details_div">
+            <img src="../images/notifications-svgrepo-com.svg" alt="" />
+            <h2>Subscribers</h2>
+          </div>
+          <div class="profile_details_div">
+            <img src="../images/videos_nlogo.svg" alt="" />
+            <h2>Plans</h2>
+          </div>
+          <div class="profile_details_div">
+            <img src="../images/notifications-svgrepo-com.svg" alt="" />
+            <h2>Notifications</h2>
+          </div>
+        </section>
+        <section id="section_2">
+          <div class="profile_pic_div">
+            <div class="profile_img">
+              <img src="../images/nav-profile-image.svg" alt="" />
+            </div>
+            <h1>Coder</h1>
+          </div>
+          <div class="user_data">
+            <h1>Name: <span>Joe</span></h1>
+            <h1>Email: <span>joe@gmail.com</span></h1>
+            <div class="btns">
+              <!-- <h2>password</h2> -->
+              <button class="my-button">Change password</button>
+              <button class="my-button">Logout</button>
+              <button class="my-button">Delete Account</button>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+  </body>
 </html>
+<script src="../scripts/index.js"></script>

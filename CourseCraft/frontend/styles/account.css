@@ -1,0 +1,172 @@
+* {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+main {
+  width: 100%;
+  height: 100%;
+  /* background: radial-gradient(farthest-side at top left, #1b1834, transparent),
+    radial-gradient(farthest-side at top right, #dc19779f, transparent 500px),
+    radial-gradient(farthest-side at bottom right, #42f4fa93, transparent),
+    radial-gradient(farthest-corner at bottom left, #dc1976, transparent); */
+  text-align: center;
+}
+#account_section {
+  background-color: white;
+  width: 90%;
+  margin: auto;
+  display: flex;
+  padding-top: 40px;
+}
+#section_1 {
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  height: fit-content;
+  margin: 0px;
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.profile_details_div {
+  width: 90%;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  border: #585fa2 1px solid;
+  height: fit-content;
+  margin: 0px;
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-bottom: 5px;
+  transition: transform 0.2s ease;
+}
+.profile_details_div:hover {
+  color: white;
+  background-color: #585fa2;
+  transform: translateY(-5px);
+}
+.profile_details_div > h2 {
+  margin-left: 20px;
+  font-size: 30px;
+}
+#section_2 {
+  width: 60%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.profile_pic_div {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.profile_details_div img {
+  width: 10%;
+  height: 10%;
+  border-radius: 50%;
+}
+.profile_pic_div > h1 {
+  margin-top: 20px;
+  font-size: 40px;
+}
+.profile_img {
+  width: 150px;
+  height: 150px;
+}
+.profile_img > img {
+  width: 100%;
+}
+.user_data {
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: start;
+}
+.user_data span {
+  color: #585fa2;
+}
+.btns {
+  margin-top: 20px;
+}
+.my-button {
+  padding: 10px 20px;
+  margin-bottom: 5px;
+  background-color: #585fa2;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: transform 0.2s ease;
+}
+
+.my-button:hover {
+  background-color: #1b1834;
+  transform: scale(1.1);
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .profile_details_div > h2 {
+    font-size: 25px;
+  }
+  #section_2 {
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+  .user_data {
+    justify-content: center;
+    align-items: center;
+  }
+  .my-button {
+    padding: 10px;
+  }
+}
+
+@media (max-width: 767px) {
+  #account_section {
+    flex-direction: column;
+  }
+  #section_1 {
+    width: 100%;
+    padding: 0px;
+  }
+  .profile_details_div {
+    padding: 5px;
+    width: 100%;
+    justify-content: center;
+  }
+  .profile_details_div > h2 {
+    font-size: 16px;
+    padding: 0px;
+  }
+  .profile_details_div > img {
+    width: 8%;
+    height: 8%;
+  }
+  #section_2 {
+    width: 100%;
+    margin-top: 10px;
+  }
+  .profile_img {
+    width: 120px;
+    height: 120px;
+  }
+  .profile_pic_div > h1 {
+    font-size: 35px;
+  }
+  .user_data {
+    justify-content: center;
+    align-items: center;
+  }
+  .btns {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+  }
+  .my-button {
+    margin-bottom: 5px;
+  }
+}

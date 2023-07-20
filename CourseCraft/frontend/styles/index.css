@@ -1,7 +1,7 @@
-body{
-    margin: 0;
-    padding: 0;
-    background-color: #1B1834;
+body {
+  margin: 0;
+  padding: 0;
+  /* background-color: #1b1834; */
 }
 ::-webkit-scrollbar{
     display: none;
@@ -17,242 +17,225 @@ body{
 }
 
 
-
 /* **********************nav************************* */
-nav{
-    background-color: #1B1834;
-    position: sticky;
-    top: 0;
-    padding: 10px 20px;
+nav {
+  background-color: #1b1834;
+  position: sticky;
+  top: 0;
+  padding: 10px 20px;
 }
 
-#topNav{
- display: flex;
- justify-content: space-between;
- width: 100%;
+#topNav {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
 }
 
-#topNav>img{
-    width: 20%;
+#topNav > img {
+  width: 20%;
 }
 
-#topNav>div:nth-child(2){
-    width: 20%;
-    display: flex;
-    justify-content: space-between;
-    padding: 1%;
-    /* border: 1px solid red; */
-    border-radius: 10px;
-    height: fit-content;
+#topNav > div:nth-child(2) {
+  width: 20%;
+  display: flex;
+  justify-content: space-between;
+  padding: 1%;
+  /* border: 1px solid red; */
+  border-radius: 10px;
+  height: fit-content;
 }
-#topNav>div:nth-child(2):hover>p:not(:hover){
-    opacity: 0.2;
+#topNav > div:nth-child(2):hover > p:not(:hover) {
+  opacity: 0.2;
 }
-#topNav>div>p{
-    color: white;
-    border: #585FA2 1px solid;
-    height: fit-content;
-    margin: 0px;
-    padding: 10px;
-    border-radius: 10px;
-    cursor: pointer;
-}
-
-#topNav>div:nth-child(3){
-    width: 20%;
-    display: flex;
-    padding: 1%;
-    border-radius: 10px;
-    height: fit-content;
-    /* border: 1px solid red; */
-}
-#topNav>div:nth-child(3)>button{
-    width: fit-content;
-    padding: 10px;
-    border-radius: 10px;
-    font-size: 17px;
-    background-color: transparent;
-    border: 0px;
-    /* box-shadow: rgba(255, 255, 255, 0.24) 0px 3px 8px; */
-    color: white;
-    border: #585FA2 1px solid;
-    cursor: pointer;
-}
-#topNav>div:nth-child(3)>button>ion-icon{
-    position: relative;
-    top: 3px;
-    margin-right: 5px;
-}
-#user{
-    color: white;
-    border: #585FA2 1px solid;
-    width: fit-content;
-    padding: 10px;
-    border-radius: 10px;
-    cursor: pointer;
-}
-#user>img{
-    margin-right: 10px; 
-}
-#user>span{
-    position: relative;
-    top: -5px;
-    font-size: 17px;
+#topNav > div > p {
+  color: white;
+  border: #585fa2 1px solid;
+  height: fit-content;
+  margin: 0px;
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
 }
 
-#bottomNav{
-    display: none;
+#topNav > div:nth-child(3) {
+  width: 20%;
+  display: flex;
+  padding: 1%;
+  border-radius: 10px;
+  height: fit-content;
+  /* border: 1px solid red; */
 }
-#bottomNav>hr{
-    margin-right: 15px;
-    text-align: left;
-    border: #585FA2 1px solid;
+#topNav > div:nth-child(3) > button {
+  width: fit-content;
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 17px;
+  background-color: transparent;
+  border: 0px;
+  /* box-shadow: rgba(255, 255, 255, 0.24) 0px 3px 8px; */
+  color: white;
+  border: #585fa2 1px solid;
+  cursor: pointer;
 }
-#bottomNav>div>ion-icon{
-    color: white;
-    width: 25px;
-    height: 30px;
-    position: relative;
-    top: 10px;
+#topNav > div:nth-child(3) > button > ion-icon {
+  position: relative;
+  top: 3px;
+  margin-right: 5px;
 }
-#bottomNav>div{
-    border-bottom: 2px solid #585FA2;
-    height: 60px;
-    margin-right: 15px;
-    padding-bottom: 5px;
+#user {
+  color: white;
+  border: #585fa2 1px solid;
+  width: fit-content;
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
 }
-#bottomNav>div>input{
-    width: 94%;
-    height: 30px;
-    outline: none;
-    border: 0px;
-    background-color: transparent;
-    color: white;
-    font-size: 19px;
-    margin-right: 1%;
-    margin-top: 20px;
+#user > img {
+  margin-right: 10px;
 }
-#bottomNav>div>input::placeholder{
-    font-size: 19px;
-    color: white;
-}
-#hide{
-    color: white;
-    width: 25px;
-    height: 30px;
-    position: absolute;
-    top: 125px;
-    left: 95%;
-    background-color: #526cdf;
-    padding: 0px 3px;
-    border-radius: 50%;
-    cursor: pointer;
-}
-#bottomNav>div>a{
-    color: white;
-    text-decoration: none;
-    width: fit-content;
-    height: fit-content;
-    padding: 10px;
-    /* font-size: 17px; */
-    border: #585FA2 1px solid;
-    border-radius: 10px;
-    cursor: pointer;
-    margin-right: 20px;
-}
-#bottomNav>div>a>img{
-    width: 30px;
-    border-radius: 5px;
-    background-color: white;
-    position: relative;
-    top: 10px;
-    margin-right: 10px;
-}
-#aws{
-    height: 30px;
-}
-#bottomNav>div>a>span{
-    margin-bottom: 5px;
-}
-#bottomNav>div>h1>span{
-    font-size: 20px;
-    color: white;
-    text-decoration: none;
-    width: fit-content;
-    height: fit-content;
-    padding: 10px;
-    /* font-size: 17px; */
-    border: #585FA2 1px solid;
-    border-radius: 10px;
-    cursor: pointer;
-    margin-right: 20px;
-    margin-top: 30px;
+#user > span {
+  position: relative;
+  top: -5px;
+  font-size: 17px;
 }
 
+#bottomNav {
+  display: none;
+}
+#bottomNav > hr {
+  margin-right: 15px;
+  text-align: left;
+  border: #585fa2 1px solid;
+}
+#bottomNav > div > ion-icon {
+  color: white;
+  width: 25px;
+  height: 30px;
+  position: relative;
+  top: 10px;
+}
+#bottomNav > div {
+  border-bottom: 2px solid #585fa2;
+  height: 60px;
+  margin-right: 15px;
+  padding-bottom: 5px;
+}
+#bottomNav > div > input {
+  width: 94%;
+  height: 30px;
+  outline: none;
+  border: 0px;
+  background-color: transparent;
+  color: white;
+  font-size: 19px;
+  margin-right: 1%;
+  margin-top: 20px;
+}
+#bottomNav > div > input::placeholder {
+  font-size: 19px;
+  color: white;
+}
+#hide {
+  color: white;
+  width: 25px;
+  height: 30px;
+  position: absolute;
+  top: 125px;
+  left: 95%;
+  background-color: #526cdf;
+  padding: 0px 3px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+#bottomNav > div > a {
+  color: white;
+  text-decoration: none;
+  width: fit-content;
+  height: fit-content;
+  padding: 10px;
+  /* font-size: 17px; */
+  border: #585fa2 1px solid;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-right: 20px;
+}
+#bottomNav > div > a > img {
+  width: 30px;
+  border-radius: 5px;
+  background-color: white;
+  position: relative;
+  top: 10px;
+  margin-right: 10px;
+}
+#aws {
+  height: 30px;
+}
+#bottomNav > div > a > span {
+  margin-bottom: 5px;
+}
+#bottomNav > div > h1 > span {
+  font-size: 20px;
+  color: white;
+  text-decoration: none;
+  width: fit-content;
+  height: fit-content;
+  padding: 10px;
+  /* font-size: 17px; */
+  border: #585fa2 1px solid;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-right: 20px;
+  margin-top: 30px;
+}
 
 /* **********************header************************* */
-header{
-    height: max-content;
-    background: 
-    radial-gradient(
-      farthest-side at top left,
-      #1B1834, 
-      transparent 
-    ),
-    radial-gradient(
-      farthest-side at top right,
-      #dc19779f, 
-      transparent 500px
-    ),
-    radial-gradient(
-      farthest-side at bottom right,
-      #42f4fa93, 
-      transparent 
-    ),
-    radial-gradient(
-      farthest-corner at bottom left,
-      #DC1976, 
-      transparent 
-    );
-    text-align: center;
-    padding: 50px 0px;
+header {
+  height: max-content;
+  background: radial-gradient(farthest-side at top left, #1b1834, transparent),
+    radial-gradient(farthest-side at top right, #dc19779f, transparent 500px),
+    radial-gradient(farthest-side at bottom right, #42f4fa93, transparent),
+    radial-gradient(farthest-corner at bottom left, #dc1976, transparent);
+  text-align: center;
+  padding: 50px 0px;
 }
-header>div:nth-child(1){
-    width: 94%;
-    margin: auto;
-    padding-top: 50px;
-    background-color: rgba(24, 23, 23, 0.2);
-    border-radius: 20px;
-    color: #fffff1;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+header > div:nth-child(1) {
+  width: 94%;
+  margin: auto;
+  padding-top: 50px;
+  background-color: rgba(24, 23, 23, 0.2);
+  border-radius: 20px;
+  color: #fffff1;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
-header>div:nth-child(1)>h1{
-    font-size: 70px;
+header > div:nth-child(1) > h1 {
+  font-size: 70px;
 }
-header>div:nth-child(1)>h2{
-    font-size: 25px;
+header > div:nth-child(1) > h2 {
+  font-size: 25px;
 }
-header>div:nth-child(1)>button{
-    font-size: 20px;
-    font-weight: 500;
-    border: 0px;
-    border-radius: 30px;
-    padding: 10px;
-    background-color: #DC1976;
-    color: #fffff1;
-    cursor: pointer;
+header > div:nth-child(1) > button {
+  font-size: 20px;
+  font-weight: 500;
+  border: 0px;
+  border-radius: 30px;
+  padding: 10px;
+  background-color: #dc1976;
+  color: #fffff1;
+  cursor: pointer;
 }
-header>div:nth-child(2)>div{
-    display: grid;
-    grid-template-columns: repeat(5,1fr);
-    gap: 50px;
-    width: max-content;
-    height: max-content;
-    margin: auto;
+header > div:nth-child(2) > div {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 50px;
+  width: max-content;
+  height: max-content;
+  margin: auto;
 }
-header>div:nth-child(2)>div>img{
+header > div:nth-child(2) > div > img {
   width: 90px;
   padding: 5px;
+
     aspect-ratio: 3/2;
     object-fit: contain;
 }
@@ -561,3 +544,4 @@ footer{
     color: white;
     text-decoration: none;
 }
+
