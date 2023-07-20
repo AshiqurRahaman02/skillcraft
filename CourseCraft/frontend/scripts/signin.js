@@ -135,7 +135,6 @@ const handlesignupName = () => {
 signupName.addEventListener("input", debounce(handlesignupName, 1000));
 
 // signup click handler
-
 let signupBtn = document.getElementById("signup-btn");
 signupBtn.addEventListener("click", (e) => {
 	e.preventDefault();
@@ -145,7 +144,40 @@ signupBtn.addEventListener("click", (e) => {
 
 		let otp = document.getElementById("otp");
 		let otpNumber = Math.floor(1000 + Math.random() * 9000);
-		otp.innerText = otpNumber;
+		let details = {
+			from: "admin@skilcraft.com",
+			to: signupEmail.value,
+			subject: "Your OTP Verification Code",
+			text: `Dear ${signupName.value}, 
+			\n 
+			\n 
+			\n 
+			Thank you for signing up with Skill Craft. To complete your registration, please enter the following OTP (One-Time Password) within the next 10 minutes: 
+			\n 
+			OTP: ${otpNumber} 
+			\n 
+			\n 
+			\n 
+			\n 
+			Please do not share this OTP with anyone, as it is used for verification purposes only.`,
+		};
+
+		fetch("https://tiny-lime-jay-coat.cyclic.app/send-email", {
+			method: "POST",
+			headers: {
+				"Content-Type": "application/json",
+			},
+			body: JSON.stringify(details),
+		})
+			.then((res) => res.json())
+			.then((data) => {
+				console.log(data);
+			})
+			.catch((err) => {
+				console.log(err);
+			});
+		otp.innerText = "Check your Email for OPT";
+		// otp.innerText = otpNumber;
 
 		let otpButton = document.getElementById("otpButton");
 		otpButton.addEventListener("click", (e) => {
@@ -157,11 +189,10 @@ signupBtn.addEventListener("click", (e) => {
 			let otpInput = i1.value + i2.value + i3.value + i4.value;
 
 			if (otpInput == otpNumber) {
-				// popup.classList.remove("openpopup")
-
 				popup.innerHTML = `
                     <div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><span>Loading</span></div>
                     `;
+				signUpFunction();
 			} else {
 				document.querySelector("#otpInput>h3").innerHTML = "WRONG OPT";
 				document.querySelector("#otpInput>h3").style.color = "red";
@@ -186,6 +217,318 @@ signupBtn.addEventListener("click", (e) => {
 		}
 	}
 });
+
+function signUpFunction() {
+	let newUser = {
+		email: signupEmail.value,
+		password: signupPassword.value,
+		name: signupName.value,
+	};
+	popup.innerHTML = `<h1>OTP VARIFICATION</h1>
+	<h3>YOUR OTP IS:- <span id="otp">0000</span></h3>
+
+	<div id="otpInput">
+		<h3>Enter Your OTP</h3>
+		<input type="number" id="otpInput1" maxlength="1"/>
+		<input type="number" id="otpInput2" maxlength="1"/>
+		<input type="number" id="otpInput3" maxlength="1"/>
+		<input type="number" id="otpInput4" maxlength="1"/>
+	</div>
+	<button id="otpButton">Submit</button>`;
+	popup.classList.remove("openpopup");
+
+	fetch("http://localhost:8080/user/register", {
+		method: "POST",
+		headers: {
+			"Content-Type": "application/json",
+		},
+		body: JSON.stringify(newUser),
+	})
+		.then((res) => res.json())
+		.then((res) => {
+			if (!res.isError) {
+				customAlert(true, `${res.message}`, "Please Login in our website");
+			} else {
+				customAlert(false, `${res.message}`, "Please Login in our website");
+			}
+		})
+		.catch((err) => console.log(err));
+}
+
+// for signin function
+let signinBtn = document.getElementById("signin-btn");
+signinBtn.addEventListener("click", (e) => {
+	e.preventDefault();
+
+	if (validSigninEmail && validSigninPassword) {
+		popup.classList.add("openpopup");
+
+		let otp = document.getElementById("otp");
+		let otpNumber = Math.floor(1000 + Math.random() * 9000);
+		let details = {
+			from: "admin@skilcraft.com",
+			to: signupEmail.value,
+			subject: "Your OTP Verification Code",
+			text: `Dear ${signupName.value}, 
+			\n 
+			\n 
+			\n 
+			Thank you for signing up with Skill Craft. To complete your registration, please enter the following OTP (One-Time Password) within the next 10 minutes: 
+			\n 
+			OTP: ${otpNumber} 
+			\n 
+			\n 
+			\n 
+			\n 
+			Please do not share this OTP with anyone, as it is used for verification purposes only.`,
+		};
+
+		fetch("https://tiny-lime-jay-coat.cyclic.app/send-email", {
+			method: "POST",
+			headers: {
+				"Content-Type": "application/json",
+			},
+			body: JSON.stringify(details),
+		})
+			.then((res) => res.json())
+			.then((data) => {
+				console.log(data);
+			})
+			.catch((err) => {
+				console.log(err);
+			});
+		otp.innerText = "Check your Email for OPT";
+		// otp.innerText = otpNumber;
+
+		let otpButton = document.getElementById("otpButton");
+		otpButton.addEventListener("click", (e) => {
+			let i1 = document.getElementById("otpInput1");
+			let i2 = document.getElementById("otpInput2");
+			let i3 = document.getElementById("otpInput3");
+			let i4 = document.getElementById("otpInput4");
+
+			let otpInput = i1.value + i2.value + i3.value + i4.value;
+
+			if (otpInput == otpNumber) {
+				popup.innerHTML = `
+                    <div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><span>Loading</span></div>
+                    `;
+				signInFunction();
+			} else {
+				document.querySelector("#otpInput>h3").innerHTML = "WRONG OPT";
+				document.querySelector("#otpInput>h3").style.color = "red";
+			}
+		});
+	} else {
+		console.log(validSignupEmail, validSignupPassword);
+		if (!validSigninEmail) {
+			customAlert(false, "Please enter a valid email", "");
+		} else {
+			customAlert(
+				false,
+				"Please create a strong password",
+				"Password should contain upper,lowercase and numbers"
+			);
+		}
+	}
+});
+
+function signInFunction() {
+	let user = {
+		email: signinEmail.value,
+		password: signinPassword.value,
+	};
+
+	fetch("http://localhost:8080/user/login", {
+		method: "POST",
+		headers: {
+			"Content-Type": "application/json",
+		},
+		body: JSON.stringify(user),
+	})
+		.then((res) => res.json())
+		.then((res) => {
+			popup.innerHTML = `<h1>OTP VARIFICATION</h1>
+	<h3>YOUR OTP IS:- <span id="otp">0000</span></h3>
+
+	<div id="otpInput">
+		<h3>Enter Your OTP</h3>
+		<input type="number" id="otpInput1" maxlength="1"/>
+		<input type="number" id="otpInput2" maxlength="1"/>
+		<input type="number" id="otpInput3" maxlength="1"/>
+		<input type="number" id="otpInput4" maxlength="1"/>
+	</div>
+	<button id="otpButton">Submit</button>`;
+			popup.classList.remove("openpopup");
+			if (!res.isError) {
+				localStorage.setItem("token", res.token);
+				let user = res.user;
+				localStorage.setItem("userInfo", JSON.stringify(user));
+				customAlert(
+					true,
+					`${res.message}`,
+					"You will redirect to Home page in 3s"
+				);
+				setTimeout(function () {
+					window.location.href = "../index.html";
+				}, 3000);
+			} else {
+				customAlert(false, `${res.message}`, "");
+			}
+		})
+		.catch((err) => {
+			console.log(err);
+			customAlert(false, `${err.message}`, "");
+		});
+}
+
+// for forget password
+function forgetPassword(e) {
+	e.preventDefault();
+
+	if (validSigninEmail) {
+		popup.classList.add("openpopup");
+
+		let otp = document.getElementById("otp");
+		let otpNumber = Math.floor(1000 + Math.random() * 9000);
+		let details = {
+			from: "admin@skilcraft.com",
+			to: signinEmail.value,
+			subject: "Your OTP Verification Code",
+			text: `Dear User, 
+			\n 
+			\n 
+			\n 
+			Thank you for signing up with Skill Craft. To complete your registration, please enter the following OTP (One-Time Password) within the next 10 minutes: 
+			\n 
+			OTP: ${otpNumber} 
+			\n 
+			\n 
+			\n 
+			\n 
+			Please do not share this OTP with anyone, as it is used for verification purposes only.`,
+		};
+
+		fetch("https://tiny-lime-jay-coat.cyclic.app/send-email", {
+			method: "POST",
+			headers: {
+				"Content-Type": "application/json",
+			},
+			body: JSON.stringify(details),
+		})
+			.then((res) => res.json())
+			.then((data) => {
+				console.log(data);
+			})
+			.catch((err) => {
+				console.log(err);
+			});
+		otp.innerText = "Check your Email for OPT";
+		// otp.innerText = otpNumber;
+
+		let otpButton = document.getElementById("otpButton");
+		otpButton.addEventListener("click", (e) => {
+			let i1 = document.getElementById("otpInput1");
+			let i2 = document.getElementById("otpInput2");
+			let i3 = document.getElementById("otpInput3");
+			let i4 = document.getElementById("otpInput4");
+
+			let otpInput = i1.value + i2.value + i3.value + i4.value;
+
+			if (otpInput == otpNumber) {
+				popup.innerHTML = `
+                    <div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><span>Loading</span></div>
+                    `;
+				forgetPasswordFunction();
+			} else {
+				document.querySelector("#otpInput>h3").innerHTML = "WRONG OPT";
+				document.querySelector("#otpInput>h3").style.color = "red";
+			}
+		});
+	} else {
+		console.log(validSignupEmail, validSignupPassword);
+		if (!validSigninEmail) {
+			customAlert(false, "Please enter a valid email", "");
+		}
+	}
+}
+
+function forgetPasswordFunction() {
+	let user = {
+		email: signinEmail.value,
+	};
+
+	fetch("http://localhost:8080/user/forgot_password", {
+		method: "POST",
+		headers: {
+			"Content-Type": "application/json",
+		},
+		body: JSON.stringify(user),
+	})
+		.then((res) => res.json())
+		.then((res) => {
+			popup.innerHTML = `<h1>OTP VARIFICATION</h1>
+	<h3>YOUR OTP IS:- <span id="otp">0000</span></h3>
+
+	<div id="otpInput">
+		<h3>Enter Your OTP</h3>
+		<input type="number" id="otpInput1" maxlength="1"/>
+		<input type="number" id="otpInput2" maxlength="1"/>
+		<input type="number" id="otpInput3" maxlength="1"/>
+		<input type="number" id="otpInput4" maxlength="1"/>
+	</div>
+	<button id="otpButton">Submit</button>`;
+			popup.classList.remove("openpopup");
+			if (!res.isError) {
+				sendTempPassword(`${res.password}`, `${res.message}`);
+			} else {
+				customAlert(false, `${res.message}`, "");
+			}
+		})
+		.catch((err) => {
+			console.log(err);
+			customAlert(false, `${err.message}`, "");
+		});
+}
+
+function sendTempPassword(password, message) {
+	let details = {
+		from: "admin@skilcraft.com",
+		to: signinEmail.value,
+		subject: "Your OTP Verification Code",
+		text: `Dear User, 
+		\n 
+		\n 
+		\n 
+		Thank you for signing up with Skil Craft. As part of our security measures, we have generated a temporary password for you. Please find your temporary password below:
+		\n 
+		Temporary Password: ${password} 
+		\n 
+		\n 
+		\n 
+		\n 
+		Please remember that this temporary password is valid for a limited time only. We recommend logging in and changing your password as soon as possible.`,
+	};
+
+	fetch("https://tiny-lime-jay-coat.cyclic.app/send-email", {
+		method: "POST",
+		headers: {
+			"Content-Type": "application/json",
+		},
+		body: JSON.stringify(details),
+	})
+		.then((res) => res.json())
+		.then((data) => {
+			customAlert(
+				true,
+				`${message}`,
+				`Your Temporary Password sent successfully to your email address`
+			);
+		})
+		.catch((err) => {
+			console.log(err);
+		});
+}
 
 //custom alert function
 const button = document.querySelector("button"),
@@ -281,4 +624,3 @@ hide.addEventListener("click", function () {
 	show.style.display = "block";
 	hide.style.display = "none";
 });
-
