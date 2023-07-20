@@ -9,7 +9,11 @@
 	<body>
 		<nav>
 			<div id="topNav">
-				<img src="./images/skilcraft-logo.png" alt="" />
+				<img
+					src="./images/skilcraft-logo.png"
+					alt=""
+					onclick="window.location.href='./index.html'"
+				/>
 				<div>
 					<p onclick="showSkills()">Skills</p>
 					<p onclick="showCourses()">Courses</p>
@@ -20,9 +24,9 @@
 						<ion-icon name="search-outline"></ion-icon>Search
 					</button>
 					<hr />
-					<div id="user"  onclick="redirect()">
+					<div id="user" onclick="redirect()">
 						<img src="./images/nav-profile-image.svg" alt="" />
-						<span>Sign In</span>
+						<span id="userName">Sign In</span>
 					</div>
 				</div>
 			</div>
@@ -76,6 +80,242 @@
 				</div>
 			</div>
 		</header>
+		<section id="section1">
+			<div>
+				<h1>Why SkilCraft</h1>
+				<p>
+					Whether you’re an individual looking to learn Python to advance
+					your career or an enterprise team looking to cut cycle times,
+					speed up onboarding, or give your teams the skills to realize
+					your strategies, we remove the challenges and roadblocks slowing
+					you down. We’re advancing the world’s tech workforce, and that
+					starts with making your work more efficient and effective—and
+					giving you more to celebrate.
+				</p>
+				<button>
+					See our solutions<ion-icon
+						name="arrow-forward-outline"
+					></ion-icon>
+				</button>
+			</div>
+			<div>
+				<img src="./images/pluralsight-puzzle-piece.webp" alt="" />
+			</div>
+		</section>
+		<section id="section2">
+			<div>
+				<img src="./images/acg-solutions.webp" alt="" />
+			</div>
+			<div>
+				<h3>Online demo</h3>
+				<h1>See our solutions in action</h1>
+				<p>
+					Check out our demos to see in action the platform features
+					that'll transform your teams, and get all the details straight
+					from the experts who know your problems—and your solutions—best.
+				</p>
+				<button>
+					<img src="./images/play-icon.webp" alt="" />Tour
+					solutions<ion-icon name="arrow-forward-outline"></ion-icon>
+				</button>
+			</div>
+		</section>
+		<section id="section3">
+			<h1>Products</h1>
+			<div>
+				<div>
+					<img src="./images/skills-badges-solid.webp" alt="" />
+					<div>
+						<h1>Skills</h1>
+						<p>
+							Empower yourself or your team to develop the skills
+							critical to delivering on your career goals and initiatives
+							with our tech skills platform.
+						</p>
+						<a href=""
+							>View all Skills
+							<ion-icon name="arrow-forward-outline"></ion-icon
+						></a>
+						<hr />
+						<a href=""
+							>Learn from top creator<ion-icon
+								name="arrow-forward-outline"
+							></ion-icon
+						></a>
+						<hr />
+						<a href=""
+							>Learn from our creator<ion-icon
+								name="arrow-forward-outline"
+							></ion-icon
+						></a>
+						<hr />
+						<a href=""
+							>Take quiz<ion-icon name="arrow-forward-outline"></ion-icon
+						></a>
+						<hr />
+						<button>
+							Explore Skills
+							<ion-icon name="arrow-forward-outline"></ion-icon>
+						</button>
+					</div>
+				</div>
+				<div>
+					<img src="./images/skills-badges-solid.webp" alt="" />
+					<div>
+						<h1>Courses</h1>
+						<p>
+							Unlock your full potential and achieve your career
+							aspirations with our comprehensive course offerings. From
+							beginner to advanced levels.
+						</p>
+						<a href=""
+							>View all Courses
+							<ion-icon name="arrow-forward-outline"></ion-icon
+						></a>
+						<hr />
+						<a href=""
+							>Learn from top creator<ion-icon
+								name="arrow-forward-outline"
+							></ion-icon
+						></a>
+						<hr />
+						<a href=""
+							>Learn from our creator<ion-icon
+								name="arrow-forward-outline"
+							></ion-icon
+						></a>
+						<hr />
+						<a href=""
+							>Take quiz<ion-icon name="arrow-forward-outline"></ion-icon
+						></a>
+						<hr />
+						<button>
+							Explore Courses
+							<ion-icon name="arrow-forward-outline"></ion-icon>
+						</button>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section id="section4">
+			<div>
+				<div>
+					<img src="./images/cloud-icon.webp" alt="" />
+					<h1>A Cloud Guru: <br />Learn cloud like never before</h1>
+				</div>
+				<div>
+					<div>
+						<h2>
+							The industry leader in learn-by-doing cloud skill training
+							is now part of SkilCraft! Master the skills you need to
+							boost your career or accelerate your company’s cloud
+							transformation. In fact, 96% of our business customers see
+							improved results within six months. Now you can, too.
+						</h2>
+						<div id="icons">
+							<div>
+								<img src="./images/lightning-icon.webp" alt="" />
+								<p>100s of courses and <br />1000s of hands-on labs</p>
+							</div>
+							<div>
+								<img src="./images/group-icon.webp" alt="" />
+								<p>
+									Coverage of all major <br />
+									cloud providers
+								</p>
+							</div>
+							<div>
+								<img src="./images/cloud-gear-icon.webp" alt="" />
+								<p>
+									Real cloud development <br />
+									practice environments
+								</p>
+							</div>
+							<div>
+								<img src="./images/lightbulb-icon.webp" alt="" />
+								<p>
+									Tailored-to-you learning <br />
+									paths for every skill level
+								</p>
+							</div>
+						</div>
+						<div>
+							<button>View Pricing</button>
+							<button>Tell Me More</button>
+						</div>
+					</div>
+					<img src="./images/cloud-guru-culture.webp" alt="" />
+				</div>
+			</div>
+		</section>
+		<footer>
+			<div id="topFooter">
+				<div>
+					<h1>Support</h1>
+					<a href="">Contact</a>
+					<a href="">Help Center</a>
+					<a href="">IP Allowlist</a>
+					<a href="">Site Map</a>
+					<a href="">Download SkilCraft</a>
+					<a href="">Skills Plans</a>
+					<a href="">A Cloud Guru Plans</a>
+					<a href="">Flow Plans</a>
+				</div>
+				<div>
+					<h1>Community</h1>
+					<a href="">Guides</a>
+					<a href="">Teach</a>
+					<a href="">Partner with SkilCraft</a>
+					<a href="">Affiliate Partners</a>
+					<a href="">SkilCraft One</a>
+					<a href="">Authors</a>
+				</div>
+				<div>
+					<h1>Company</h1>
+					<a href="">About Us</a>
+					<a href="">Careers</a>
+					<a href="">Newsroom</a>
+					<a href="">Resources</a>
+				</div>
+				<div>
+					<h1>Industries</h1>
+					<a href="">Education</a>
+					<a href="">Financial Services (FSBI)</a>
+					<a href="">Healthcare</a>
+					<a href="">Insurance</a>
+					<a href="">Non-Profit</a>
+					<a href="">Public Sector</a>
+				</div>
+				<div>
+					<h1>Newsletter</h1>
+					<a href="">Sign up with your email to join our mailing list.</a>
+					<label for="email">Email Address:</label>
+					<input type="email" name="email" id="email" placeholder="Enter your email here">
+					<a><input type="checkbox" name="" id="">I would like to receive emails from SkilCraft
+
+					</a> 
+					<button>Submit</button>
+					<div>
+						<img src="./images/social-icon-instagram-blue.webp" alt=""><img src="./images/social-icon-twitter-blue.webp" alt=""><img src="./images/social-icon-fb-blue.webp" alt=""><img src="./images/social-icon-linkedin-blue.webp" alt=""><img src="./images/social-icon-yt-blue.webp" alt="">
+					</div>
+				</div>
+
+			</div>
+			<hr />
+			<div id="bottomFooter">
+				<div>
+					<img src="./images/favicon.png" alt="" /><span
+						>Copyright © 2004 - 2023 SkilCraft LLC. All rights
+						reserved</span
+					>
+				</div>
+				<div>
+					<a href="">Terms of Use</a>
+					<a href="">Privacy Notice</a>
+					<a href="">Modern Slavery Statement</a>
+				</div>
+			</div>
+		</footer>
 	</body>
 	<script
 		type="module"

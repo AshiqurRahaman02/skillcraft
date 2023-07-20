@@ -1,10 +1,14 @@
-const userDetails = JSON.parse(localStorage.getItem('userDetails')) || null;
+const userDetails = JSON.parse(localStorage.getItem('userInfo')) || null;
+
+if(userDetails){
+    document.getElementById("userName").innerText=userDetails.name[0].toUpperCase()+userDetails.name.split("").splice(1).join("");
+}
 
 const redirect = () => {
     if(userDetails){
-        window.location.href = "/pages/account.html"
+        window.location.href = "./pages/account.html"
     }else{
-        window.location.href = "/pages/sign.html"
+        window.location.href = "./pages/signin.html"
     }
 }
 
