@@ -11,6 +11,7 @@ main {
     radial-gradient(farthest-side at bottom right, #42f4fa93, transparent),
     radial-gradient(farthest-corner at bottom left, #dc1976, transparent);
   text-align: center;
+  /* filter: blur(20px); */
 }
 #account_section {
   color: white;
@@ -70,8 +71,8 @@ main {
 #section_2 {
   width: 60%;
   display: flex;
-  justify-content: space-evenly;
-  align-items: center;
+  /* justify-content: space-evenly; */
+  /* align-items: center; */
   box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
     rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
   border-radius: 10px;
@@ -135,7 +136,7 @@ main {
 }
 .my-button:hover {
   background-color: #1b1834;
-  transform: scale(1.1);
+  transform: scale(1);
 }
 
 /* Videos Section */
@@ -146,15 +147,19 @@ main {
   width: 100%;
   height: fit-content;
   border-radius: 10px;
-  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
-    rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
 }
 .video_box {
   display: flex;
-  flex-direction: column;
+
+  /* flex-direction: column; */
+  width: 100%;
+  margin-left: 30px;
+  padding: 10px;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+  rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
 }
 .video_thumbnail {
-  width: 100%;
+  width: 300px;
   height: 200px;
 }
 .video_thumbnail > img {
@@ -163,22 +168,52 @@ main {
 }
 .video_nameAndbtn {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 10px;
+  margin-left: 20px;
+  width: 60%;
+  justify-content: space-between;
 }
-.titleName {
+.titleName  {
   font-size: 30px;
   margin: 0px;
   color: #1b1834;
 }
-.titleName span {
+.totalLikes, .totalComments{
+  font-size: 17px;
+  margin: 0px;
+  color: #1b1834;
+}
+.video_nameAndbtn>div{
+  text-align: left;
+}
+.video_nameAndbtn span {
   color: white;
+}
+.video_nameAndbtn button{
+  margin-top: 10px;
+  width: 100px;
+  text-align: center;
 }
 .vids_btn {
   display: flex;
   justify-content: space-between;
+}
+#upload{
+  position: relative;
+  left: 87%;
+  width: fit-content;
+  right: 0px;
+  font-size: 20px;
+	font-weight: 500;
+	border: 0px;
+	border-radius: 5px;
+	padding: 10px;
+	background-color: #dc1976;
+	color: #fffff1;
+	cursor: pointer;
+  margin: 30px 0px;
+}
+#upload:hover{
+  background-color: #dc1976;
 }
 
 /* Subscriber Section */
@@ -240,6 +275,142 @@ main {
 .border {
   border: #1b1834 5px solid;
 }
+
+/* popup */
+
+.popup {
+	position: absolute;
+	background-color: rgba(36, 35, 35, 0.185);
+	backdrop-filter: blur(25px);
+	height: 600px;
+	width: 54%;
+	border-radius: 30px;
+	text-align: center;
+
+	top: 20%;
+	left: 60%;
+	transform: translate(-50%, -50%) scale(0.1);
+	visibility: hidden;
+	transition: transform 0.4s, top 0.4s;
+	border: #e2e2e2 1px solid;
+  /* filter: blur(20px); */
+}
+.openpopup {
+	visibility: visible;
+	top: 60.4%;
+	left: 68%;
+	transform: translate(-50%, -50%) scale(1);
+}
+.popup > h1 {
+	padding-top: 50px;
+	font-family: serif;
+	font-size: 50px;
+	color: white;
+  text-align: left;
+	margin: 0px 0px 30px 30px;
+}
+
+#details{
+  display: flex;
+}
+form{
+  width: 45%;
+  margin-right: 5%;
+  display: flex;
+  flex-direction: column;
+  margin-left: 30px;
+  height: max-content;
+}
+form input, select , textarea{
+  border: 0px;
+  margin: 10px 0px 10px ;
+  outline: 0px;
+  background-color: rgba(245, 245, 220, 0.199);
+  border-bottom: 2px solid #d71e78;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+::placeholder{
+  color: #000;
+}
+form>label{
+  text-align: left;
+}
+#name, select{
+  height: 30px;
+}
+#description{
+  height: 100px;
+}
+#preview{
+ position: relative;
+ top: -20px;
+}
+#preview h2{
+  margin: 0px;
+  text-align: left;
+}
+
+#uploadButton {
+	width: 150px;
+	height: 50px;
+	cursor: pointer;
+	display: block;
+	background: linear-gradient(to right, #d71e78, #81416d);
+	border: 0;
+	outline: none;
+	border-radius: 15px;
+	color: #ffffff;
+	font-size: 16px;
+	font-weight: 600;
+	text-align: center;
+	margin: auto;
+	margin-top: 20px;
+}
+
+.popup-open {
+	backdrop-filter: blur(55px);
+}
+#close{
+  position: relative;
+  left: 20%;
+  top: 3px;
+}
+
+.progress{
+  display: none;
+  position: absolute;
+  top: 60%;
+	left: 44%;
+  /* height: 1px; */
+  width: 150px;
+  border: 1px solid #ffffff;
+  border-radius: 15px;
+}
+.progress .color{
+  position: absolute;
+  background-color: #2a9d8f;
+  width: 0px;
+  height: 5px;
+  border-radius: 15px;
+  animation: progres 15s  linear;    
+}
+@keyframes progres{
+  0%{
+    width: 0%;
+  }
+  25%{
+      width: 50%;
+  }
+  50%{
+      width: 70%;
+  }
+  75%{
+      width: 85%;
+  }
+  100%{
+      width: 100%;
+  }
+};
 
 /* Notifications Section */
 .notifications {
