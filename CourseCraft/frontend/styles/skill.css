@@ -270,4 +270,64 @@ h1 {
   color: #000;
   font-size: 16px;
   margin-right: 10px;
+} 
+
+/* skill.css */
+
+/* Styling for the sidebar */
+.sidebar {
+  width: 250px;
+  background-color: #f1f1f1;
+  padding: 10px;
+  box-sizing: border-box;
 }
+
+.sidebar__categories h2 {
+  margin-bottom: 10px;
+}
+
+/* Styling for the skill list in the sidebar */
+#skillList {
+  list-style: none;
+  padding: 0;
+}
+
+#skillList li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+#skillList input[type="checkbox"] {
+  margin-right: 5px;
+}
+
+#skillList label {
+  cursor: pointer;
+}
+
+/* Style for the selected checkbox label */
+#skillList input[type="checkbox"]:checked + label {
+  font-weight: bold;
+  color: #007bff; /* Change the color to your preference */
+}
+
+.search {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.search input[type="text"] {
+  flex: 1;
+  padding: 5px;
+}
+
+.search button {
+  margin-left: 5px;
+  padding: 5px 10px;
+  background-color: #007bff; /* Change the color to your preference */
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
