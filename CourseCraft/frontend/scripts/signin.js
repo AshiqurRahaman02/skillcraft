@@ -267,19 +267,21 @@ signinBtn.addEventListener("click", (e) => {
 		let otpNumber = Math.floor(1000 + Math.random() * 9000);
 		let details = {
 			from: "admin@skilcraft.com",
-			to: signupEmail.value,
+			to: signinEmail.value,
 			subject: "Your OTP Verification Code",
-			text: `Dear ${signupName.value}, 
-			\n 
-			\n 
-			\n 
+			text: `Dear User, 
+			
+			
+
+
 			Thank you for signing up with Skill Craft. To complete your registration, please enter the following OTP (One-Time Password) within the next 10 minutes: 
-			\n 
+			
+
 			OTP: ${otpNumber} 
-			\n 
-			\n 
-			\n 
-			\n 
+			
+			
+
+			
 			Please do not share this OTP with anyone, as it is used for verification purposes only.`,
 		};
 
