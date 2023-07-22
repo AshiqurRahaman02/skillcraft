@@ -15,6 +15,36 @@ var video = {
 	_id: "64bb4d7c68c5abe7bbf2f569",
 };
 
+const commentsArray = [
+	{ user: "Ashik", comment: "This is a good video!" },
+	{ user: "Alice Smith", comment: "Great content! Keep it up!" },
+	{ user: "Bob Johnson", comment: "I learned a lot from this video." },
+	{ user: "Emily Brown", comment: "Amazing tutorial, thank you!" },
+	{ user: "Michael Lee", comment: "This is exactly what I needed." },
+	{ user: "Sophia Wang", comment: "I love your videos!" },
+	{ user: "David Kim", comment: "You explain things so well." },
+	{ user: "Olivia Chen", comment: "This helped me a lot." },
+	{ user: "William Liu", comment: "Very clear and concise." },
+	{ user: "Ava Gupta", comment: "You're doing a great job!" },
+	{ user: "James Patel", comment: "I can't wait for the next one." },
+	{ user: "Emma Nguyen", comment: "I've been looking for this information." },
+	{ user: "Noah Wilson", comment: "Thanks for sharing your knowledge." },
+	{ user: "Isabella Miller", comment: "This is so helpful, thanks!" },
+	{ user: "Ethan Anderson", comment: "You're an awesome teacher!" },
+];
+
+function shuffleArray(arr) {
+	const shuffledArray = [...arr];
+	for (let i = shuffledArray.length - 1; i > 0; i--) {
+		const j = Math.floor(Math.random() * (i + 1));
+		[shuffledArray[i], shuffledArray[j]] = [
+			shuffledArray[j],
+			shuffledArray[i],
+		];
+	}
+	return shuffledArray;
+}
+
 const userDetails = JSON.parse(localStorage.getItem("userInfo")) || null;
 
 if (userDetails) {
@@ -49,16 +79,16 @@ const hideBottomNav = () => {
 
 const showSkills = () => {
 	bottomNavDiv.innerHTML = `
-                                <a href=""><img src="../images/javascript.svg" alt=""><span>JAVASCRIPT</span></a>
-                                <a href=""><img src="../images/nodejs.svg" alt=""><span>NODE.JS</span></a>
-                                <a href=""><img src="../images/python-5.svg" alt=""><span>PYTHON</span></a>
-                                <a href=""><img src="../images/react-1.svg" alt=""><span>REACT</span></a>
-                                <a href=""><img src="../images/aws-2.svg" alt="" id="aws"><span>AWS</span></a>
-                                <a href=""><img src="../images/c.svg" alt=""><span>C++</span></a>
-                                <a href=""><img src="../images/html-1.svg" alt="" id="aws"><span>HTML</span></a>
-                                <a href=""><img src="../images/css-3.svg" alt=""><span>CSS</span></a>
-                                <a href=""><img src="../images/tailwind-css-2.svg" alt="" id="aws"><span> Tailwind CSS</span></a>
-                                <a href=""><span>SEE MORE</span><ion-icon name="arrow-forward-outline"></ion-icon></a>
+                                <a href="../pages/skills.html?cat=JAVASCRIPT"><img src="../images/javascript.svg" alt=""><span>JAVASCRIPT</span></a>
+                                <a href="../pages/skills.html?cat=NODE.JS"><img src="../images/nodejs.svg" alt=""><span>NODE.JS</span></a>
+                                <a href="../pages/skills.html?cat=PYTHON"><img src="../images/python-5.svg" alt=""><span>PYTHON</span></a>
+                                <a href="../pages/skills.html?cat=REACT"><img src="../images/react-1.svg" alt=""><span>REACT</span></a>
+                                <a href="../pages/skills.html?cat=AWS"><img src="../images/aws-2.svg" alt="" id="aws"><span>AWS</span></a>
+                                <a href="../pages/skills.html?cat=C++"><img src="../images/c.svg" alt=""><span>C++</span></a>
+                                <a href="../pages/skills.html?cat=HTML"><img src="../images/html-1.svg" alt="" id="aws"><span>HTML</span></a>
+                                <a href="../pages/skills.html?cat=CSS"><img src="../images/css-3.svg" alt=""><span>CSS</span></a>
+                                <a href="../pages/skills.html?cat=Tailwind CSS"><img src="../images/tailwind-css-2.svg" alt="" id="aws"><span> Tailwind CSS</span></a>
+                                <a href="../pages/skills.html"><span>SEE MORE</span><ion-icon name="arrow-forward-outline"></ion-icon></a>
                             `;
 	document.querySelector("#bottomNav").style.display = "block";
 };
@@ -112,6 +142,9 @@ function displayVideo(video) {
 	document.querySelector(".likes").innerHTML = video.likes;
 	document.querySelector(".comment").innerHTML = video.comments.length;
 
+	let comments = shuffleArray(commentsArray);
+
+	displayComments(comments);
 	getRelatableVideo(video.category);
 }
 
@@ -133,11 +166,17 @@ function displayRelatableVideo(data) {
 	let html = ``;
 
 	data.forEach((ele) => {
+		let title = ele.name;
+		let maxLength = 35;
+		if (title.length > maxLength) {
+			title = title.substring(0, maxLength) + "...";
+		}
 		if (ele._id !== video._id) {
 			html += `<div onclick="openVideo('${ele._id}')">
                     <img src="${ele.thumbnailURL}" alt="">
                     <div>
-                        <h3>${ele.name}</h3>
+                        <h3>${title}</h3>
+						<p>By <span>${ele.creatorName}</span></p>
                         <p>Likes <span>${ele.likes}</span></p>
                     </div>
                 </div>
@@ -151,7 +190,57 @@ function displayRelatableVideo(data) {
 	document.querySelector("#relatable>div").innerHTML = html;
 }
 
+function displayComments(comments) {
+	let html = ``;
+
+	comments.forEach((comment) => {
+		html += `<h3 style="margin-bottom: 0px;">${comment.comment}</h3><span>by ${comment.user}</span>`;
+	});
+	if (html.length == 0) {
+		html += "No Relatable Videos Available";
+	}
+
+	document.querySelector(".comment").innerHTML = comments.length;
+	document.querySelector("#comment").innerHTML = html;
+}
+
 function openVideo(id) {
 	let url = "../pages/video.html?id=" + id;
 	window.location.href = url;
+}
+
+function shareVideo() {
+	document.getElementById("share").style.display = "none";
+	document.getElementById("copy").style.display = "block";
+}
+
+function copyLink() {
+	let link = window.location.href;
+
+	navigator.clipboard.writeText(link).then(
+		function () {
+			confirm("Link copied");
+		},
+		function () {
+			confirm("Failed to copy link");
+		}
+	);
+}
+
+function addComment() {
+	let comment = document.querySelector("#commentInput").value;
+	if (comment.length > 0) {
+		let com = {
+			user: userName,
+			comment: comment,
+		};
+
+		commentsArray.push(com);
+
+		let totalComments = document.querySelector(".comment").innerText;
+		document.querySelector(".comment").innerHTML = ++totalComments;
+		confirm("Comment added");
+	} else {
+		confirm("Please enter a comment");
+	}
 }

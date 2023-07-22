@@ -365,6 +365,7 @@ function signInFunction() {
 			if (!res.isError) {
 				localStorage.setItem("token", res.token);
 				let user = res.user;
+				user.tag = `@${user.name.split(" ")[0]}${Math.floor(1000 + Math.random() * 9000)}`
 				localStorage.setItem("userInfo", JSON.stringify(user));
 				customAlert(
 					true,
