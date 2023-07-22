@@ -7,7 +7,7 @@ const userID = userDetails._id;
 const email = userDetails.email;
 const name = userDetails.name;
 
-var activeSection = "account";
+var activeSection = "";
 
 const params = new URLSearchParams(window.location.search);
 
@@ -20,8 +20,9 @@ if (activeParam === "video") {
 	console.log("Some other value is active.");
 } else {
 	console.log("Default state.");
+	displayAccount()
+	
 }
-
 function displayAccount() {
 	if (activeSection !== "account") {
 		document.getElementById("account").style.display = "block";
@@ -85,7 +86,7 @@ function displayAllVideos(data) {
                   <div>
                     <button class="my-button" onclick="updateVideo(${video._id})">Edit</button>
                     <br />
-                    <button class="my-button" onclick="deleteVideo(${video._id})">Delete</button>
+                    <button class="my-button" onclick="deleteVideo('${title}','${video._id}')">Delete</button>
                   </div>
                 </div>
               </div>
@@ -94,6 +95,30 @@ function displayAllVideos(data) {
 
 	document.getElementById("parent").innerHTML = html;
 }
+async function deleteVideo(title,id) {
+	if(confirm(`Are you sure you want to delete ${title}`)){
+		try {
+			const response = await fetch(`http://localhost:8080/video/delete/${id}`, {
+			  method: "DELETE",
+			});
+		
+			const data = await response.json();
+		
+			if (response.ok) {
+			  console.log(data.message);
+			  window.location.reload();
+
+			} else {
+			  console.error(data.message); 
+			}
+		  } catch (error) {
+			console.error("Error:", error);
+		  }
+	}else{
+		return;
+	}
+  }
+  
 
 function displaySubscribers() {
 	if (activeSection !== "subscribe") {
