@@ -6,6 +6,7 @@ const VideoModel = require("../models/video.model");
 const videoRouter = express.Router();
 
 // post video
+
 videoRouter.post("/upload/video", async (req, res) => {
 	try {
 		const { name, description, category, adminID, creatorName, email } =

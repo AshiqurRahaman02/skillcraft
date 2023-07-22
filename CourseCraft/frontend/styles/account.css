@@ -376,7 +376,7 @@ form>label{
   top: 3px;
 }
 
-.progress{
+.pro{
   display: none;
   position: absolute;
   top: 60%;
@@ -386,7 +386,7 @@ form>label{
   border: 1px solid #ffffff;
   border-radius: 15px;
 }
-.progress .color{
+.pro .color{
   position: absolute;
   background-color: #2a9d8f;
   width: 0px;
