@@ -119,6 +119,11 @@ async function deleteVideo(title,id) {
 	}
   }
   
+  function logout(){
+	window.localStorage.removeItem("userInfo");
+	window.localStorage.removeItem("token");
+	window.location.href = "../pages/signin.html"
+  }
 
 function displaySubscribers() {
 	if (activeSection !== "subscribe") {
