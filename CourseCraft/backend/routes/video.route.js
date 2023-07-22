@@ -147,6 +147,18 @@ function convertUTCtoIST(timestamp) {
 	return istTimestamp;
 }
 
+// get single video
+videoRouter.get("/get/video/:id", async (req, res) => {
+	const id = req.params.id;
+	try {
+		const video = await VideoModel.findById(id);
+
+		res.status(200).json({ isError: false, video });
+	} catch (error) {
+		res.status(500).json({ isError: true, message: error.message });
+	}
+});
+
 // get all videos
 videoRouter.get("/get/video", async (req, res) => {
 	try {
@@ -186,6 +198,30 @@ videoRouter.get("/get/coursesVideo/:id", async (req, res) => {
 		res.status(200).json({ isError: false, videos });
 	} catch (error) {
 		res.status(500).json({ isError: true, message: error.message });
+	}
+});
+
+// get by categories
+videoRouter.get("/get/byCategories", async (req, res) => {
+	const categories = req.query.categories;
+
+	try {
+		let videos;
+		if (categories) {
+			const categoryArray = categories.split(",");
+
+			videos = await VideoModel.find({ category: { $in: categoryArray } });
+		} else {
+			videos = await VideoModel.find();
+		}
+
+		res.status(200).json({ isError: false, videos });
+	} catch (error) {
+		res.status(500).json({
+			isError: true,
+			message: "Error fetching videos",
+			error: error.message,
+		});
 	}
 });
 

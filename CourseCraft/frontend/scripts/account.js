@@ -5,7 +5,7 @@ if (!userDetails) {
 }
 const userID = userDetails._id;
 const email = userDetails.email;
-const name = userDetails.name;
+const userName = userDetails.name;
 
 var activeSection = "";
 
@@ -69,8 +69,8 @@ function displayAllVideos(data) {
             title = title.substring(0, maxLength) + "...";
         }
 		html += `
-              <div class="video_box">
-                <div class="video_thumbnail">
+              <div class="video_box" >
+                <div class="video_thumbnail"  onclick="openVideo('${video._id}')">
                   <img src="${video.thumbnailURL}" alt="" />
                 </div>
                 <div class="video_nameAndbtn">
@@ -94,6 +94,10 @@ function displayAllVideos(data) {
 	});
 
 	document.getElementById("parent").innerHTML = html;
+}
+function openVideo(id) {
+	let url = "../pages/video.html?id=" + id;
+	window.location.href = url;
 }
 async function deleteVideo(title,id) {
 	if(confirm(`Are you sure you want to delete ${title}`)){
@@ -215,7 +219,7 @@ async function uploadVideo() {
 		formData.append("description", description);
 		formData.append("category", category);
 		formData.append("adminID", userID);
-		formData.append("creatorName", name);
+		formData.append("creatorName",userName );
 		formData.append("email", email);
 
 		document.getElementById("popup").style.filter = "blur(20px)";
