@@ -1,53 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Account</title>
-		<link rel="stylesheet" href="../styles/index.css" />
-		<link rel="stylesheet" href="../styles/account.css" />
-	</head>
-	<body>
-		<nav>
-			<div id="topNav">
-				<img
-					src="../images/skilcraft-logo.png"
-					alt=""
-					onclick="window.location.href='../index.html'"
-				/>
-				<div>
-					<p onclick="showSkills()">Skills</p>
-					<p onclick="showCourses()">Courses</p>
-					<p onclick="showPlans()">Plans</p>
-				</div>
-				<div>
-					<button>
-						<ion-icon name="search-outline"></ion-icon>Search
-					</button>
-					<hr />
-					<div id="user" onclick="redirect()">
-						<img src="../images/nav-profile-image.svg" alt="" />
-						<span id="userName">Sign In</span>
-					</div>
-				</div>
-			</div>
-			<div id="bottomNav">
-				<hr />
-				<div></div>
-				<ion-icon
-					name="arrow-up-outline"
-					id="hide"
-					onclick="hideBottomNav()"
-				></ion-icon>
-			</div>
-		</nav>
-		<main>
-			<div id="account_section">
-				<section id="section_1">
-					<div class="profile_details_div" onclick="displayAccount()">
-						<img src="../images/nav-profile-image.svg" alt="" />
-						<h2>Account</h2>
-					</div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Account</title>
+    <link rel="stylesheet" href="../styles/index.css" />
+    <link rel="stylesheet" href="../styles/account.css" />
+  </head>
+  <body>
+    <nav>
+      <div id="topNav">
+        <img
+          src="../images/skilcraft-logo.png"
+          alt=""
+          onclick="window.location.href='../index.html'"
+        />
+        <div>
+          <p onclick="showSkills()">Skills</p>
+          <p onclick="showCourses()">Courses</p>
+          <p onclick="showPlans()">Plans</p>
+        </div>
+        <div>
+          <button><ion-icon name="search-outline"></ion-icon>Search</button>
+          <hr />
+          <div id="user" onclick="redirect()">
+            <img src="../images/nav-profile-image.svg" alt="" />
+            <span id="userName">Sign In</span>
+          </div>
+        </div>
+      </div>
+      <div id="bottomNav">
+        <hr />
+        <div></div>
+        <ion-icon
+          name="arrow-up-outline"
+          id="hide"
+          onclick="hideBottomNav()"
+        ></ion-icon>
+      </div>
+    </nav>
+    <main>
+      <div id="account_section">
+        <section id="section_1">
+          <div class="profile_details_div" onclick="displayAccount()">
+            <img src="../images/nav-profile-image.svg" alt="" />
+            <h2>Account</h2>
+          </div>
+
+
+          <div class="profile_details_div" onclick="displayVideos()">
+            <img src="../images/videos-svgrepo-com.svg" alt="" />
+            <h2>Videos</h2>
+          </div>
 
 					<div
 						class="profile_details_div"
@@ -57,24 +61,56 @@
 						<h2>Videos</h2>
 					</div>
 
-					<div class="profile_details_div" onclick="displaySubscribers()">
-						<img src="../images/notifications-svgrepo-com.svg" alt="" />
-						<h2>Subscribers</h2>
-					</div>
 
-					<div class="profile_details_div" onclick="displayPlans()">
-						<img src="../images/videos_nlogo.svg" alt="" />
-						<h2>Plans</h2>
-					</div>
+          <div class="profile_details_div" onclick="displaySubscribers()">
+            <img src="../images/notifications-svgrepo-com.svg" alt="" />
+            <h2>Subscribers</h2>
+          </div>
 
-					<div
-						class="profile_details_div"
-						onclick="displayNotifications()"
-					>
-						<img src="../images/notifications-svgrepo-com.svg" alt="" />
-						<h2>Notifications</h2>
-					</div>
-				</section>
+          <div class="profile_details_div" onclick="displayPlans()">
+            <img src="../images/videos_nlogo.svg" alt="" />
+            <h2>Plans</h2>
+          </div>
+
+          <div class="profile_details_div" onclick="displayNotifications()">
+            <img src="../images/notifications-svgrepo-com.svg" alt="" />
+            <h2>Notifications</h2>
+          </div>
+        </section>
+
+
+        <section id="section_2">
+          <!-- ACCOUNT -->
+          <div id="account">
+            <div class="account" id="userProfileContainer">
+              <div class="profile_pic_div">
+                <div class="profile_img">
+                  <img src="../images/nav-profile-image.svg" alt="" />
+                </div>
+                <h1 id="usercodeName"></h1>
+                <div class="social_handler">
+                  <div>
+                    <img src="../images/icons8-facebook.svg" alt="facbook" />
+                    <img src="../images/icons8-instagram.svg" alt="instagram" />
+                    <img
+                      src="../images/icons8-twitter-circled.svg"
+                      alt="twitter"
+                    />
+                    <img src="../images/icons8-github.svg" alt="github" />
+                  </div>
+                </div>
+              </div>
+              <div class="user_data">
+                <h1>Name: <span id="userNameSpan"></span></h1>
+                <h1>Email: <span id="userEmailSpan"></span></h1>
+                <div class="btns">
+                  <button class="my-button">Change password</button>
+                  <button class="my-button">Logout</button>
+                  <button class="my-button">Delete Account</button>
+                </div>
+              </div>
+            </div>
+          </div>
 
 				<section id="section_2">
 					<!-- ACCOUNT -->
@@ -120,6 +156,7 @@
 						</div>
 					</div>
 
+
 					<!-- VIDEOS -->
 					<div id="videos" class="sub_section">
 						<!-- <div class="sub_section"> -->
@@ -131,72 +168,95 @@
 						</div>
 					</div>
 
-					<!-- SUBSCRIBERS -->
-					<div id="subscribe">
-						<div class="subscriber_container">
-							<div class="subscriber">
-								<div class="sub_image">
-									<img src="../images/Untitled-design-77.jpg" alt="" />
-								</div>
-								<div class="sub_info">
-									<h2 class="titleName">
-										<span>Name: </span> Masai Coder
-									</h2>
-									<p>
-										Lorem ipsum dolor, sit amet consectetur
-										adipisicing elit. Libero voluptates accusantium
-										eos eius nihil omnis, magni nam blanditiis tempora
-										deleniti fugiat eveniet voluptatem quibusdam eius
-										adipisci laborum commodi exercitationem pariatur.
-										Distinctio rem nulla odit quia? Autem, nisi
-										maiores.
-									</p>
-								</div>
-							</div>
-						</div>
-					</div>
 
-					<!-- PLANS -->
-					<div id="plans">
-						<div class="plans">
-							<div class="plan_div">
-								<h1 class="plan_title">Free trial</h1>
-								<h2>
-									Price: <span class="plan_more">$00/10days</span>
-								</h2>
-								<h2>More About Plan</h2>
-								<ul class="plan_more">
-									<li>Unlimited videos,</li>
-									<li>Watch on 1 phone or tablet at a time</li>
-									<li>Expire in 10 Days</li>
-								</ul>
-							</div>
-							<div class="plan_div">
-								<h1 class="plan_title">Basic Plan</h1>
-								<h2>
-									Price: <span class="plan_more">$100/month</span>
-								</h2>
-								<h2>More About Plan</h2>
-								<ul class="plan_more">
-									<li>Unlimited ad-free videos,</li>
-									<li>Watch on 1 phone or tablet at a time</li>
-									<li>Expire in 30 Days</li>
-								</ul>
-							</div>
-							<div class="plan_div">
-								<h1 class="plan_title">Standard Plan</h1>
-								<h2>
-									Price: <span class="plan_more">$1000/year</span>
-								</h2>
-								<h2>More About Plan</h2>
-								<ul class="plan_more">
-									<li>Unlimited ad-free videos,</li>
-									<li>Watch on 3 phone or tablet at a time</li>
-									<li>Expire in 365 Days</li>
-								</ul>
-							</div>
-						</div>
-					</div>
+          <!-- VIDEOS -->
+          <div id="videos" class="sub_section">
+            <!-- <div class="sub_section"> -->
+            <div class="videos_container">
+              <button id="upload">Upload Video</button>
+              <div id="parent">
+                <div class="video_box">
+                  <div class="video_thumbnail">
+                    <img src="../images/Untitled-design-77.jpg" alt="" />
+                  </div>
+                  <div class="video_nameAndbtn">
+                    <div>
+                      <h2 class="titleName">Title:<span> Masai Coder</span></h2>
+                      <p class="totalLikes">Likes: <span>0</span></p>
+                      <p class="totalComments">
+                        Total Comments: <span>0</span>
+                      </p>
+                    </div>
+                    <div>
+                      <button class="my-button">Edit</button>
+                      <br />
+                      <button class="my-button">Delete</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          <!-- SUBSCRIBERS -->
+          <div id="subscribe">
+            <div class="subscriber_container">
+              <div class="subscriber">
+                <div class="sub_image">
+                  <img src="../images/Untitled-design-77.jpg" alt="" />
+                </div>
+                <div class="sub_info">
+                  <h2 class="titleName"><span>Name: </span> Masai Coder</h2>
+                  <p>
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                    Libero voluptates accusantium eos eius nihil omnis, magni
+                    nam blanditiis tempora deleniti fugiat eveniet voluptatem
+                    quibusdam eius adipisci laborum commodi exercitationem
+                    pariatur. Distinctio rem nulla odit quia? Autem, nisi
+                    maiores.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- PLANS -->
+          <div id="plans">
+            <div class="plans">
+              <div class="plan_div">
+                <h1 class="plan_title">Free trial</h1>
+                <h2>Price: <span class="plan_more">$00/10days</span></h2>
+                <h2>More About Plan</h2>
+                <ul class="plan_more">
+                  <li>Unlimited videos,</li>
+                  <li>Watch on 1 phone or tablet at a time</li>
+                  <li>Expire in 10 Days</li>
+                </ul>
+              </div>
+              <div class="plan_div">
+                <h1 class="plan_title">Basic Plan</h1>
+                <h2>Price: <span class="plan_more">$100/month</span></h2>
+                <h2>More About Plan</h2>
+                <ul class="plan_more">
+                  <li>Unlimited ad-free videos,</li>
+                  <li>Watch on 1 phone or tablet at a time</li>
+                  <li>Expire in 30 Days</li>
+                </ul>
+              </div>
+              <div class="plan_div">
+                <h1 class="plan_title">Standard Plan</h1>
+                <h2>Price: <span class="plan_more">$1000/year</span></h2>
+                <h2>More About Plan</h2>
+                <ul class="plan_more">
+                  <li>Unlimited ad-free videos,</li>
+                  <li>Watch on 3 phone or tablet at a time</li>
+                  <li>Expire in 365 Days</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
 
 					<!-- NOTIFICATIONS -->
 					<div id="notifications">
@@ -304,5 +364,6 @@
 		nomodule
 		src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
 	></script>
+
 </html>
 <script src="../scripts/account.js"></script>
