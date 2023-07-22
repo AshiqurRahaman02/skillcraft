@@ -6,7 +6,9 @@ if (!userDetails) {
 const userID = userDetails._id;
 const email = userDetails.email;
 const userName = userDetails.name;
-
+document.getElementById("name").innerText = userName
+document.getElementById("email").innerText = email
+console.log(userName)
 var activeSection = "";
 
 const params = new URLSearchParams(window.location.search);
