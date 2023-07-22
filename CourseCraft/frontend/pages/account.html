@@ -53,7 +53,10 @@
             <h2>Videos</h2>
           </div>
 
-					<div class="profile_details_div" onclick="window.location.href='../pages/account.html?active=video'">
+					<div
+						class="profile_details_div"
+						onclick="window.location.href='../pages/account.html?active=video'"
+					>
 						<img src="../images/videos-svgrepo-com.svg" alt="" />
 						<h2>Videos</h2>
 					</div>
@@ -117,7 +120,7 @@
 								<div class="profile_img">
 									<img src="../images/nav-profile-image.svg" alt="" />
 								</div>
-								<h1>Coder</h1>
+								<h2>Coder</h2>
 								<div class="social_handler">
 									<div>
 										<img
@@ -141,12 +144,26 @@
 							</div>
 							<div class="user_data">
 								<h1>Name: <span id="name">Joe</span></h1>
-								<h1>Email: <span  id="email">joe@gmail.com</span></h1>
+								<h1>Email: <span id="email">joe@gmail.com</span></h1>
 								<div class="btns">
 									<button class="my-button">Change password</button>
-									<button class="my-button" onclick="logout()">Logout</button>
+									<button class="my-button" onclick="logout()">
+										Logout
+									</button>
 									<button class="my-button">Delete Account</button>
 								</div>
+							</div>
+						</div>
+					</div>
+
+
+					<!-- VIDEOS -->
+					<div id="videos" class="sub_section">
+						<!-- <div class="sub_section"> -->
+						<div class="videos_container">
+							<button id="upload">Upload Video</button>
+							<div id="parent">
+								<div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><span>Loading</span></div>
 							</div>
 						</div>
 					</div>
@@ -180,6 +197,7 @@
               </div>
             </div>
           </div>
+
 
           <!-- SUBSCRIBERS -->
           <div id="subscribe">
@@ -239,133 +257,113 @@
             </div>
           </div>
 
-          <!-- NOTIFICATIONS -->
-          <div id="notifications">
-            <div class="notifications">
-              <h1>No New Notifications</h1>
-            </div>
-          </div>
-        </section>
-      </div>
-    </main>
-    <div id="popup" class="popup">
-      <h1>
-        Enter Your Video Details
-        <span id="close" onclick="closePopup()"
-          ><ion-icon name="close-outline"></ion-icon
-        ></span>
-      </h1>
 
-
-      <div id="details">
-        <form id="imageForm" action="/api/upload/image" method="post">
-          <input
-            type="text"
-            placeholder="Enter Video Title"
-            id="name"
-            name="title"
-          />
-          <textarea
-            cols="30"
-            rows="5"
-            placeholder="Enter Video Description"
-            id="description"
-          ></textarea>
-          <select name="" id="category">
-            <option value="">Select Category</option>
-            <option value="HTML">HTML</option>
-            <option value="CSS">CSS</option>
-            <option value="JavaScript">JavaScript</option>
-            <option value="Python">Python</option>
-            <option value="Java">Java</option>
-            <option value="C++">C++</option>
-            <option value="PHP">PHP</option>
-            <option value="Ruby">Ruby</option>
-            <option value="Swift">Swift</option>
-            <option value="React">React</option>
-            <option value="Angular">Angular</option>
-            <option value="Node.js">Node.js</option>
-            <option value="SQL">SQL</option>
-            <option value="MongoDB">MongoDB</option>
-            <option value="Git">Git</option>
-          </select>
+					<!-- NOTIFICATIONS -->
+					<div id="notifications">
+						<div class="notifications">
+							<h1>No New Notifications Come</h1>
+						</div>
+					</div>
+				</section>
+			</div>
+		</main>
+		<div id="popup" class="popup">
+			<h1>
+				Enter Your Video Details
+				<span id="close" onclick="closePopup()"
+					><ion-icon name="close-outline"></ion-icon
+				></span>
+			</h1>
 
 			<div id="details">
 				<form id="imageForm" action="/api/upload/image" method="post">
-          <input type="text" placeholder="Enter Video Title" id="name" name="title"/>
-          <textarea cols="30" rows="5" placeholder="Enter Video Description" id="description"></textarea>
-          <select name="category" id="category">
-			<option value="">Select Category</option>
-			<option value="HTML">HTML</option>
-			<option value="CSS">CSS</option>
-			<option value="JavaScript">JavaScript</option>
-			<option value="Python">Python</option>
-			<option value="Java">Java</option>
-			<option value="React">React</option>
-			<option value="Node.js">Node.js</option>
-			<option value="MongoDB">MongoDB</option>
-			<option value="SQL">SQL</option>
-			<option value="AWS">AWS</option>
-			<option value="Machine Learning">Machine Learning</option>
-			<option value="Data Science">Data Science</option>
-			<option value="Blockchain">Blockchain</option>
-			<option value="UI/UX Design">UI/UX Design</option>
-			<option value="Android Development">Android Development</option>
-			<option value="iOS Development">iOS Development</option>
-			<option value="Flutter">Flutter</option>
-			<option value="Swift">Swift</option>
-			<option value="C#">C#</option>
-			<option value="C++">C++</option>
-		  </select>
-		  
+					<input
+						type="text"
+						placeholder="Enter Video Title"
+						id="name"
+						name="title"
+					/>
+					<textarea
+						cols="30"
+						rows="5"
+						placeholder="Enter Video Description"
+						id="description"
+					></textarea>
+					<select name="category" id="category">
+						<option value="">Select Category</option>
+						<option value="HTML">HTML</option>
+						<option value="CSS">CSS</option>
+						<option value="JavaScript">JavaScript</option>
+						<option value="Python">Python</option>
+						<option value="Java">Java</option>
+						<option value="React">React</option>
+						<option value="Node.js">Node.js</option>
+						<option value="MongoDB">MongoDB</option>
+						<option value="SQL">SQL</option>
+						<option value="AWS">AWS</option>
+						<option value="Machine Learning">Machine Learning</option>
+						<option value="Data Science">Data Science</option>
+						<option value="Blockchain">Blockchain</option>
+						<option value="UI/UX Design">UI/UX Design</option>
+						<option value="Android Development">
+							Android Development
+						</option>
+						<option value="iOS Development">iOS Development</option>
+						<option value="Flutter">Flutter</option>
+						<option value="Swift">Swift</option>
+						<option value="C#">C#</option>
+						<option value="C++">C++</option>
+					</select>
 
-          <input
-            type="file"
-            name="image"
-            id="image"
-            accept=".jpg, .png, .pdf"
-            onchange="handleImageChange(event)"
-          />
-          <input
-            type="file"
-            id="video"
-            accept="video/mp4,video/x-m4v,video/*"
-            onchange="handleVideoChange(event)"
-          />
-          <button onclick="uploadVideo(event)" id="uploadButton">Upload</button>
-        </form>
+					<input
+						type="file"
+						name="image"
+						id="image"
+						accept=".jpg, .png, .pdf"
+						onchange="handleImageChange(event)"
+					/>
+					<input
+						type="file"
+						id="video"
+						accept="video/mp4,video/x-m4v,video/*"
+						onchange="handleVideoChange(event)"
+					/>
+					<button onclick="uploadVideo(event)" id="uploadButton">
+						Upload
+					</button>
+				</form>
 
-        <div id="preview">
-          <div>
-            <h2>Thambnail Preview</h2>
-            <img
-              src="../images/defult thambnail.svg"
-              alt=""
-              width="300px"
-              height="200px"
-              id="img"
-            />
-            <h2>Video Preview</h2>
-            <video controls width="300" height="200">
-              <source src="" type="video/mp4" class="video" />
-            </video>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="pro">
-      <div class="color"></div>
-      <h1 style="margin-top: -60px">Uploading...</h1>
-    </div>
-  </body>
-  <script
-    type="module"
-    src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
-  ></script>
-  <script
-    nomodule
-    src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
-  ></script>
+				<div id="preview">
+					<div>
+						<h2>Thambnail Preview</h2>
+						<img
+							src="../images/defult thambnail.svg"
+							alt=""
+							width="300px"
+							height="200px"
+							id="img"
+						/>
+						<h2>Video Preview</h2>
+						<video controls width="300" height="200">
+							<source src="" type="video/mp4" class="video" />
+						</video>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="pro">
+			<div class="color"></div>
+			<h1 style="margin-top: -60px">Uploading...</h1>
+		</div>
+	</body>
+	<script
+		type="module"
+		src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+	></script>
+	<script
+		nomodule
+		src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+	></script>
+
 </html>
-<script src="../scripts/index.js"></script>
 <script src="../scripts/account.js"></script>

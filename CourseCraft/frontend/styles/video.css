@@ -73,13 +73,8 @@ header>div{
     border-bottom-left-radius: 20px;
     cursor: pointer;
 }
-#info>div:nth-child(2)>hr{
-    /* display: none; */
-    height: 98%;
-    margin: 0px 10px;
-}
 #copy{
-    /* display: none; */
+    display: none;
     width: max-content;
     margin-top: 5px;
     border-top-right-radius: 20px;
@@ -106,6 +101,8 @@ header>div{
 	border-bottom: 1px solid #dc1976;
 	outline: none;
 	background: transparent;
+    color: #000;
+    font-size: 17px;
 }
 #commentInput::placeholder{
     color: #000;
@@ -171,5 +168,12 @@ header>div{
     background-color: rgba(255, 255, 255, 0.123);
 }
 #relatable>div>div>img{
+    width: 150px;
     margin-right: 10px;
+}
+#relatable>div>div h3{
+    margin-bottom: 10px;
+}
+#relatable>div>div p{
+    margin: 0px;
 }
