@@ -208,21 +208,25 @@ videoRouter.get("/get/byCategories", async (req, res) => {
 	try {
 		let videos;
 		if (categories) {
-			const categoryArray = categories.split(",");
-
-			videos = await VideoModel.find({ category: { $in: categoryArray } });
+		  const categoryArray = categories.split(",");
+	  
+		  // Convert the category names to regular expressions for case-insensitive search
+		  const regexArray = categoryArray.map((category) => new RegExp(category, 'i'));
+	  
+		  videos = await VideoModel.find({ category: { $in: regexArray } });
 		} else {
-			videos = await VideoModel.find();
+		  videos = await VideoModel.find();
 		}
-
+	  
 		res.status(200).json({ isError: false, videos });
-	} catch (error) {
+	  } catch (error) {
 		res.status(500).json({
-			isError: true,
-			message: "Error fetching videos",
-			error: error.message,
+		  isError: true,
+		  message: "Error fetching videos",
+		  error: error.message,
 		});
-	}
+	  }
+	  
 });
 
 // add coursesVideo
