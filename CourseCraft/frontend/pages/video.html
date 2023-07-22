@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Page</title>
+    <link rel="stylesheet" href="../styles/index.css">
+    <link rel="stylesheet" href="../styles/video.css">
+</head>
+<body>
+    <nav>
+        <div id="topNav">
+            <img
+                src="../images/skilcraft-logo.png"
+                alt=""
+                onclick="window.location.href='../index.html'"
+            />
+            <div>
+                <p onclick="showSkills()">Skills</p>
+                <p onclick="showCourses()">Courses</p>
+                <p onclick="showPlans()">Plans</p>
+            </div>
+            <div>
+                <button>
+                    <ion-icon name="search-outline"></ion-icon>Search
+                </button>
+                <hr />
+                <div id="user" onclick="redirect()">
+                    <img src="../images/nav-profile-image.svg" alt="" />
+                    <span id="userName">Sign In</span>
+                </div>
+            </div>
+        </div>
+        <div id="bottomNav">
+            <hr />
+            <div></div>
+            <ion-icon
+                name="arrow-up-outline"
+                id="hide"
+                onclick="hideBottomNav()"
+            ></ion-icon>
+        </div>
+    </nav>
+    <header>
+        <div>
+            <div id="left">
+                <video controls width="100%">
+                    <source src="" type="video/mp4" class="video" />
+                </video>
+                <div id="info">
+                    <div >
+                        <div id="like">
+                            <img src="../images/like.png" alt=""><span>Like</span><span class="likes">0</span>
+                        </div>
+                        <hr>
+                        <div id="dislike">
+                            <img src="../images/dislike.png" alt=""><span class="likes">0</span>
+                        </div>
+                    </div>
+                    <div>
+                        <div id="share">
+                            <ion-icon name="share-social-outline"></ion-icon><span>Share Video</span>
+                        </div>
+                        <div id="copy">
+                            <img src="../images/link.png" alt="" id="copyLink"> <span>Copy link</span>
+                        </div>
+                        
+                        
+                    </div>
+                </div>
+                <div id="comments">
+                    <input type="text" id="commentInput" placeholder="Add a comment..."><button id="addComment">add comment</button>
+                    <div>
+                        <h2>Total Comments <span  class="comment">0</span></h2>
+                        <div id="comment">
+                            <h3 style="margin-bottom: 0px;">;ladfjlkjkajd </h3><span>by Ashik</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="right">
+                <div id="details">
+                    <h1>Title: <span class="title"></span> </h1>
+                    <p>About video: <br><span class="about"></span></p>
+                    <h3> <span class="category"></span></h3>
+                    <div id="adminInfo">
+                        <img src="../images/nav-profile-image.svg" alt=""><span class="creatorName"></span>
+                        <button id="subscribe">Subscribe</button>
+                    </div>
+                </div>
+                <div id="relatable">
+                    <h3>Relatable Videos</h3>
+                    <div>
+                        <div>
+                            <img src="http://res.cloudinary.com/dpeycb3s4/image/upload/v1689996671/r6ulmv3bpdsmehfkr5aa.jpg" alt="">
+                            <div>
+                                <h3>Learn Css</h3>
+                                <p>Likes <span>0</span></p>
+                            </div>
+                        </div>
+                        <div>
+                            <img src="http://res.cloudinary.com/dpeycb3s4/image/upload/v1689996671/r6ulmv3bpdsmehfkr5aa.jpg" alt="">
+                            <div>
+                                <h3>Learn Css</h3>
+                                <p>Likes <span>0</span></p>
+                            </div>
+                        </div>
+                        <div>
+                            <img src="http://res.cloudinary.com/dpeycb3s4/image/upload/v1689996671/r6ulmv3bpdsmehfkr5aa.jpg" alt="">
+                            <div>
+                                <h3>Learn Css</h3>
+                                <p>Likes <span>0</span></p>
+                            </div>
+                        </div>
+                        <div>
+                            <img src="http://res.cloudinary.com/dpeycb3s4/image/upload/v1689996671/r6ulmv3bpdsmehfkr5aa.jpg" alt="">
+                            <div>
+                                <h3>Learn Css</h3>
+                                <p>Likes <span>0</span></p>
+                            </div>
+                        </div>
+                        <div>
+                            <img src="http://res.cloudinary.com/dpeycb3s4/image/upload/v1689996671/r6ulmv3bpdsmehfkr5aa.jpg" alt="">
+                            <div>
+                                <h3>Learn Css</h3>
+                                <p>Likes <span>0</span></p>
+                            </div>
+                        </div>
+                        <div>
+                            <img src="http://res.cloudinary.com/dpeycb3s4/image/upload/v1689996671/r6ulmv3bpdsmehfkr5aa.jpg" alt="">
+                            <div>
+                                <h3>Learn Css</h3>
+                                <p>Likes <span>0</span></p>
+                            </div>
+                        </div>
+                        <div>
+                            <img src="http://res.cloudinary.com/dpeycb3s4/image/upload/v1689996671/r6ulmv3bpdsmehfkr5aa.jpg" alt="">
+                            <div>
+                                <h3>Learn Css</h3>
+                                <p>Likes <span>0</span></p>
+                            </div>
+                        </div>
+                        <div>
+                            <img src="http://res.cloudinary.com/dpeycb3s4/image/upload/v1689996671/r6ulmv3bpdsmehfkr5aa.jpg" alt="">
+                            <div>
+                                <h3>Learn Css</h3>
+                                <p>Likes <span>0</span></p>
+                            </div>
+                        </div>
+                        <div>
+                            <img src="http://res.cloudinary.com/dpeycb3s4/image/upload/v1689996671/r6ulmv3bpdsmehfkr5aa.jpg" alt="">
+                            <div>
+                                <h3>Learn Css</h3>
+                                <p>Likes <span>0</span></p>
+                            </div>
+                        </div>
+                        <div>
+                            <img src="http://res.cloudinary.com/dpeycb3s4/image/upload/v1689996671/r6ulmv3bpdsmehfkr5aa.jpg" alt="">
+                            <div>
+                                <h3>Learn Css</h3>
+                                <p>Likes <span>0</span></p>
+                            </div>
+                        </div>
+                        <div>
+                            <img src="http://res.cloudinary.com/dpeycb3s4/image/upload/v1689996671/r6ulmv3bpdsmehfkr5aa.jpg" alt="">
+                            <div>
+                                <h3>Learn Css</h3>
+                                <p>Likes <span>0</span></p>
+                            </div>
+                        </div>
+                        <div>
+                            <img src="http://res.cloudinary.com/dpeycb3s4/image/upload/v1689996671/r6ulmv3bpdsmehfkr5aa.jpg" alt="">
+                            <div>
+                                <h3>Learn Css</h3>
+                                <p>Likes <span>0</span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <footer>
+        <div id="topFooter">
+            <div>
+                <h1>Support</h1>
+                <a href="">Contact</a>
+                <a href="">Help Center</a>
+                <a href="">IP Allowlist</a>
+                <a href="">Site Map</a>
+                <a href="">Download SkilCraft</a>
+                <a href="">Skills Plans</a>
+                <a href="">A Cloud Guru Plans</a>
+                <a href="">Flow Plans</a>
+            </div>
+            <div>
+                <h1>Community</h1>
+                <a href="">Guides</a>
+                <a href="">Teach</a>
+                <a href="">Partner with SkilCraft</a>
+                <a href="">Affiliate Partners</a>
+                <a href="">SkilCraft One</a>
+                <a href="">Authors</a>
+            </div>
+            <div>
+                <h1>Company</h1>
+                <a href="">About Us</a>
+                <a href="">Careers</a>
+                <a href="">Newsroom</a>
+                <a href="">Resources</a>
+            </div>
+            <div>
+                <h1>Industries</h1>
+                <a href="">Education</a>
+                <a href="">Financial Services (FSBI)</a>
+                <a href="">Healthcare</a>
+                <a href="">Insurance</a>
+                <a href="">Non-Profit</a>
+                <a href="">Public Sector</a>
+            </div>
+            <div>
+                <h1>Newsletter</h1>
+                <a href="">Sign up with your email to join our mailing list.</a>
+                <label for="email">Email Address:</label>
+                <input
+                    type="email"
+                    name="email"
+                    id="email"
+                    placeholder="Enter your email here"
+                />
+                <a
+                    ><input type="checkbox" name="" id="" />I would like to
+                    receive emails from SkilCraft
+                </a>
+                <button>Submit</button>
+                <div>
+                    <img
+                        src="../images/social-icon-instagram-blue.webp"
+                        alt=""
+                    /><img
+                        src="../images/social-icon-twitter-blue.webp"
+                        alt=""
+                    /><img src="../images/social-icon-fb-blue.webp" alt="" /><img
+                        src="../images/social-icon-linkedin-blue.webp"
+                        alt=""
+                    /><img src="../images/social-icon-yt-blue.webp" alt="" />
+                </div>
+            </div>
+        </div>
+        <hr />
+        <div id="bottomFooter">
+            <div>
+                <img src="../images/favicon.png" alt="" /><span
+                    >Copyright © 2004 - 2023 SkilCraft LLC. All rights
+                    reserved</span
+                >
+            </div>
+            <div>
+                <a href="">Terms of Use</a>
+                <a href="">Privacy Notice</a>
+                <a href="">Modern Slavery Statement</a>
+            </div>
+        </div>
+    </footer>
+</body>
+<script
+    type="module"
+    src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+></script>
+<script
+    nomodule
+    src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+></script>
+</html>
+<script src="../scripts/video.js"></script>

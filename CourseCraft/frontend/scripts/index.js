@@ -41,7 +41,7 @@ const showSkills = () => {
                                 <a href=""><img src="./images/html-1.svg" alt="" id="aws"><span>HTML</span></a>
                                 <a href=""><img src="./images/css-3.svg" alt=""><span>CSS</span></a>
                                 <a href=""><img src="./images/tailwind-css-2.svg" alt="" id="aws"><span> Tailwind CSS</span></a>
-                                <a href=""><span>SEE MORE</span><ion-icon name="arrow-forward-outline"></ion-icon></a>
+                                <a href="./pages/skills.html"><span>SEE MORE</span><ion-icon name="arrow-forward-outline"></ion-icon></a>
                             `;
 	document.querySelector("#bottomNav").style.display = "block";
 };
@@ -51,7 +51,7 @@ const showCourses = () => {
                                 <a href=""><img src="./images/photoshop.svg" alt=""><span>PHOTOSHOP CC</span></a>
                                 <a href=""><img src="./images/ai.svg" alt=""><span>AI DEVELOPMENT</span></a>
                                 <a href=""><img src="./images/tailwind-css-2.svg" alt="" id="aws"><span> Tailwind CSS</span></a>
-                                <a href=""><span>SEE MORE</span><ion-icon name="arrow-forward-outline"></ion-icon></a>
+                                <a href="../pages/skills.html"><span>SEE MORE</span><ion-icon name="arrow-forward-outline"></ion-icon></a>
                             `;
 	document.querySelector("#bottomNav").style.display = "block";
 };

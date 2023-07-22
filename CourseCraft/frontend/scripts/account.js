@@ -5,8 +5,10 @@ if (!userDetails) {
 }
 const userID = userDetails._id;
 const email = userDetails.email;
-const name = userDetails.name;
-
+const userName = userDetails.name;
+document.getElementById("name").innerText = userName
+document.getElementById("email").innerText = email
+console.log(userName)
 var activeSection = "";
 
 const params = new URLSearchParams(window.location.search);
@@ -56,6 +58,7 @@ function displayVideos() {
   }
 }
 function displayAllVideos(data) {
+
   console.log(data);
   data.reverse();
   let html = "";
@@ -69,6 +72,21 @@ function displayAllVideos(data) {
     html += `
               <div class="video_box">
                 <div class="video_thumbnail">
+
+	console.log(data);
+	data.reverse()
+	let html = "";
+
+	data.forEach((video) => {
+		let title = video.name;
+        let maxLength = 14;
+        if (title.length > maxLength) {
+            title = title.substring(0, maxLength) + "...";
+        }
+		html += `
+              <div class="video_box" >
+                <div class="video_thumbnail"  onclick="openVideo('${video._id}')">
+
                   <img src="${video.thumbnailURL}" alt="" />
                 </div>
                 <div class="video_nameAndbtn">
@@ -93,6 +111,7 @@ function displayAllVideos(data) {
 
   document.getElementById("parent").innerHTML = html;
 }
+
 async function deleteVideo(title, id) {
   if (confirm(`Are you sure you want to delete ${title}`)) {
     try {
@@ -115,6 +134,41 @@ async function deleteVideo(title, id) {
     return;
   }
 }
+
+function openVideo(id) {
+	let url = "../pages/video.html?id=" + id;
+	window.location.href = url;
+}
+async function deleteVideo(title,id) {
+	if(confirm(`Are you sure you want to delete ${title}`)){
+		try {
+			const response = await fetch(`http://localhost:8080/video/delete/${id}`, {
+			  method: "DELETE",
+			});
+		
+			const data = await response.json();
+		
+			if (response.ok) {
+			  console.log(data.message);
+			  window.location.reload();
+
+			} else {
+			  console.error(data.message); 
+			}
+		  } catch (error) {
+			console.error("Error:", error);
+		  }
+	}else{
+		return;
+	}
+  }
+  
+  function logout(){
+	window.localStorage.removeItem("userInfo");
+	window.localStorage.removeItem("token");
+	window.location.href = "../pages/signin.html"
+  }
+
 
 function displaySubscribers() {
   if (activeSection !== "subscribe") {
@@ -185,6 +239,7 @@ function handleVideoChange(event) {
 }
 
 async function uploadVideo() {
+
   event.preventDefault();
 
   const imageInput = document.getElementById("image");
@@ -214,6 +269,37 @@ async function uploadVideo() {
     setTimeout(() => {}, 5000);
     setTimeout(() => {
       confirm(`Video uploaded successfully.
+
+	event.preventDefault();
+
+	const imageInput = document.getElementById("image");
+	const image = imageInput.files[0];
+
+	const videoInput = document.getElementById("video");
+	const video = videoInput.files[0];
+
+	const name = document.getElementById("name").value;
+	const description = document.getElementById("description").value;
+	const category = document.getElementById("category").value;
+
+	if (image && video && name && description && category) {
+		const formData = new FormData();
+		formData.append("image", image);
+		formData.append("video", video);
+		formData.append("name", name);
+		formData.append("description", description);
+		formData.append("category", category);
+		formData.append("adminID", userID);
+		formData.append("creatorName",userName );
+		formData.append("email", email);
+
+		document.getElementById("popup").style.filter = "blur(20px)";
+		document.querySelector(".pro").style.display = "block";
+
+		setTimeout(() => {}, 5000);
+		setTimeout(() => {
+			confirm(`Video uploaded successfully.
+
 		You will receive an email notification when your video goes live. It usually takes less than a minute.`);
       uploadFinalVideo(formData);
     }, 10000);

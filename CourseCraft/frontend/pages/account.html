@@ -47,10 +47,17 @@
             <h2>Account</h2>
           </div>
 
+
           <div class="profile_details_div" onclick="displayVideos()">
             <img src="../images/videos-svgrepo-com.svg" alt="" />
             <h2>Videos</h2>
           </div>
+
+					<div class="profile_details_div" onclick="window.location.href='../pages/account.html?active=video'">
+						<img src="../images/videos-svgrepo-com.svg" alt="" />
+						<h2>Videos</h2>
+					</div>
+
 
           <div class="profile_details_div" onclick="displaySubscribers()">
             <img src="../images/notifications-svgrepo-com.svg" alt="" />
@@ -67,6 +74,7 @@
             <h2>Notifications</h2>
           </div>
         </section>
+
 
         <section id="section_2">
           <!-- ACCOUNT -->
@@ -100,6 +108,49 @@
               </div>
             </div>
           </div>
+
+				<section id="section_2">
+					<!-- ACCOUNT -->
+					<div id="account">
+						<div class="account">
+							<div class="profile_pic_div">
+								<div class="profile_img">
+									<img src="../images/nav-profile-image.svg" alt="" />
+								</div>
+								<h1>Coder</h1>
+								<div class="social_handler">
+									<div>
+										<img
+											src="../images/icons8-facebook.svg"
+											alt="facbook"
+										/>
+										<img
+											src="../images/icons8-instagram.svg"
+											alt="instagram"
+										/>
+										<img
+											src="../images/icons8-twitter-circled.svg"
+											alt="twitter"
+										/>
+										<img
+											src="../images/icons8-github.svg"
+											alt="github"
+										/>
+									</div>
+								</div>
+							</div>
+							<div class="user_data">
+								<h1>Name: <span id="name">Joe</span></h1>
+								<h1>Email: <span  id="email">joe@gmail.com</span></h1>
+								<div class="btns">
+									<button class="my-button">Change password</button>
+									<button class="my-button" onclick="logout()">Logout</button>
+									<button class="my-button">Delete Account</button>
+								</div>
+							</div>
+						</div>
+					</div>
+
 
           <!-- VIDEOS -->
           <div id="videos" class="sub_section">
@@ -205,6 +256,7 @@
         ></span>
       </h1>
 
+
       <div id="details">
         <form id="imageForm" action="/api/upload/image" method="post">
           <input
@@ -237,6 +289,36 @@
             <option value="MongoDB">MongoDB</option>
             <option value="Git">Git</option>
           </select>
+
+			<div id="details">
+				<form id="imageForm" action="/api/upload/image" method="post">
+          <input type="text" placeholder="Enter Video Title" id="name" name="title"/>
+          <textarea cols="30" rows="5" placeholder="Enter Video Description" id="description"></textarea>
+          <select name="category" id="category">
+			<option value="">Select Category</option>
+			<option value="HTML">HTML</option>
+			<option value="CSS">CSS</option>
+			<option value="JavaScript">JavaScript</option>
+			<option value="Python">Python</option>
+			<option value="Java">Java</option>
+			<option value="React">React</option>
+			<option value="Node.js">Node.js</option>
+			<option value="MongoDB">MongoDB</option>
+			<option value="SQL">SQL</option>
+			<option value="AWS">AWS</option>
+			<option value="Machine Learning">Machine Learning</option>
+			<option value="Data Science">Data Science</option>
+			<option value="Blockchain">Blockchain</option>
+			<option value="UI/UX Design">UI/UX Design</option>
+			<option value="Android Development">Android Development</option>
+			<option value="iOS Development">iOS Development</option>
+			<option value="Flutter">Flutter</option>
+			<option value="Swift">Swift</option>
+			<option value="C#">C#</option>
+			<option value="C++">C++</option>
+		  </select>
+		  
+
           <input
             type="file"
             name="image"
