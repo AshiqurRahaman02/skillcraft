@@ -9,38 +9,64 @@ const name = userDetails.name;
 
 var activeSection = "account";
 
+const params = new URLSearchParams(window.location.search);
+
+const activeParam = params.get("active"); // "video"
+
+if (activeParam === "video") {
+	displayVideos();
+	console.log("Video is active.");
+} else if (activeParam === "some_other_value") {
+	console.log("Some other value is active.");
+} else {
+	console.log("Default state.");
+}
+
 function displayAccount() {
 	if (activeSection !== "account") {
-		hideAllDivs();
 		document.getElementById("account").style.display = "block";
 		activeSection = "account";
-		markActiveDiv(event.target);
+
+		document.getElementById("videos").style.display = "none";
+		document.getElementById("subscribe").style.display = "none";
+		document.getElementById("plans").style.display = "none";
+		document.getElementById("notifications").style.display = "none";
+
 	}
 }
 
 function displayVideos() {
 	if (activeSection !== "videos") {
-		hideAllDivs();
 		document.getElementById("videos").style.display = "block";
 		activeSection = "videos";
-		markActiveDiv(event.target);
-	}
+		
+		document.getElementById("account").style.display = "none";
+		document.getElementById("subscribe").style.display = "none";
+		document.getElementById("plans").style.display = "none";
+		document.getElementById("notifications").style.display = "none";
 
-	// get user video
-	fetch(`http://localhost:8080/video/get/videos/${userID}`)
-		.then((response) => response.json())
-		.then((data) => {
-			displayAllVideos(data.videos);
-		})
-		.catch((error) => {
-			console.error("Error:", error);
-		});
+		// get user video
+		fetch(`http://localhost:8080/video/get/videos/${userID}`)
+			.then((response) => response.json())
+			.then((data) => {
+				displayAllVideos(data.videos);
+			})
+			.catch((error) => {
+				console.error("Error:", error);
+			});
+	}
 }
 function displayAllVideos(data) {
-  console.log(data);
+	console.log(data);
+	data.reverse()
 	let html = "";
 
 	data.forEach((video) => {
+		let title = video.name;
+        let maxLength = 14;
+        if (title.length > maxLength) {
+            title = title.substring(0, maxLength) + "...";
+        }
 		html += `
               <div class="video_box">
                 <div class="video_thumbnail">
@@ -49,7 +75,7 @@ function displayAllVideos(data) {
                 <div class="video_nameAndbtn">
                   <div>
                     <h2 class="titleName">
-                      Title:<span>${video.name}</span>
+                      <span>${title}</span>
                     </h2>
                     <p class="totalLikes">Likes: <span>${video.likes}</span></p>
                     <p class="totalComments">
@@ -66,52 +92,45 @@ function displayAllVideos(data) {
             `;
 	});
 
-  document.getElementById("parent").innerHTML = html
+	document.getElementById("parent").innerHTML = html;
 }
 
 function displaySubscribers() {
 	if (activeSection !== "subscribe") {
-		hideAllDivs();
 		document.getElementById("subscribe").style.display = "block";
 		activeSection = "subscribe";
-		markActiveDiv(event.target);
+		
+		document.getElementById("account").style.display = "none";
+		document.getElementById("videos").style.display = "none";
+		document.getElementById("plans").style.display = "none";
+		document.getElementById("notifications").style.display = "none";
 	}
 }
 
 function displayPlans() {
 	if (activeSection !== "plans") {
-		hideAllDivs();
 		document.getElementById("plans").style.display = "block";
 		activeSection = "plans";
-		markActiveDiv(event.target);
+		
+		document.getElementById("account").style.display = "none";
+		document.getElementById("subscribe").style.display = "none";
+		document.getElementById("videos").style.display = "none";
+		document.getElementById("notifications").style.display = "none";
 	}
 }
 
 function displayNotifications() {
 	if (activeSection !== "notifications") {
-		hideAllDivs();
 		document.getElementById("notifications").style.display = "block";
 		activeSection = "notifications";
-		markActiveDiv(event.target);
+		
+		document.getElementById("account").style.display = "none";
+		document.getElementById("subscribe").style.display = "none";
+		document.getElementById("plans").style.display = "none";
+		document.getElementById("videos").style.display = "none";
 	}
 }
 
-function hideAllDivs() {
-	var divs = document.querySelectorAll("#section_2 > div");
-	for (var i = 0; i < divs.length; i++) {
-		divs[i].style.display = "none";
-	}
-}
-
-function markActiveDiv(target) {
-	var divs = document.querySelectorAll(".profile_details_div");
-	for (var i = 0; i < divs.length; i++) {
-		divs[i].classList.remove("active");
-	}
-	target.classList.add("active");
-}
-
-displayAccount();
 
 var image = null;
 var video = null;
@@ -145,9 +164,8 @@ function handleVideoChange(event) {
 	}
 }
 
-
 async function uploadVideo() {
-  event.preventDefault();
+	event.preventDefault();
 
 	const imageInput = document.getElementById("image");
 	const image = imageInput.files[0];
@@ -156,22 +174,32 @@ async function uploadVideo() {
 	const video = videoInput.files[0];
 
 	const name = document.getElementById("name").value;
-const description = document.getElementById("description").value;
-const category = document.getElementById("category").value;
+	const description = document.getElementById("description").value;
+	const category = document.getElementById("category").value;
 
-	const formData = new FormData();
-	formData.append("image", image);
-	formData.append("video", video);
-	formData.append("name", name);
-	formData.append("description", description);
-	formData.append("category", category);
-	formData.append("adminID", userID);
-	formData.append("creatorName", name);
-	formData.append("email", email);
+	if (image && video && name && description && category) {
+		const formData = new FormData();
+		formData.append("image", image);
+		formData.append("video", video);
+		formData.append("name", name);
+		formData.append("description", description);
+		formData.append("category", category);
+		formData.append("adminID", userID);
+		formData.append("creatorName", name);
+		formData.append("email", email);
 
-	console.log(formData);
+		document.getElementById("popup").style.filter = "blur(20px)";
+		document.querySelector(".pro").style.display = "block";
 
-	await uploadFinalVideo(formData);
+		setTimeout(() => {}, 5000);
+		setTimeout(() => {
+			confirm(`Video uploaded successfully.
+		You will receive an email notification when your video goes live. It usually takes less than a minute.`);
+			uploadFinalVideo(formData);
+		}, 10000);
+	} else {
+		alert("Please enter valid information");
+	}
 }
 
 async function uploadFinalVideo(formData) {

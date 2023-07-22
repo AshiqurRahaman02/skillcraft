@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Upload page</title>
+		<style>
+			.progress{
+    position: relative;
+    height: 1px;
+    width: 150px;
+    border: 10px solid #ffffff;
+    border-radius: 15px;
+}
+.progress .color{
+    position: absolute;
+    background-color: #2a9d8f;
+    width: 0px;
+    height: 5px;
+    border-radius: 15px;
+    animation: progres 15s infinite linear;    
+}
+@keyframes progres{
+    0%{
+      width: 0%;
+    }
+    25%{
+        width: 50%;
+    }
+    50%{
+        width: 70%;
+    }
+    75%{
+        width: 85%;
+    }
+    100%{
+        width: 100%;
+    }
+};
+		</style>
+	</head>
+	<body>
+		<div>
+			<img
+				src=""
+				alt=""
+				width="300px"
+				height="200px"
+			/>
+			<div>
+				<!-- Display video -->
+				<video controls width="300" height="200">
+					<source src="" type="video/mp4" />
+				</video>
+			</div>
+		</div>
+		<form id="imageForm" action="/api/upload/image" method="post">
+			<input type="text" placeholder="Enter Video Title" id="name"/>
+			<input type="text" placeholder="Enter Video Description" id="description"/>
+			<select name="" id="category">
+				<option value="">Select Category</option>
+				<option value="HTML">HTML</option>
+				<option value="CSS">CSS</option>
+				<option value="JavaScript">JavaScript</option>
+				<option value="Python">Python</option>
+				<option value="Java">Java</option>
+				<option value="C++">C++</option>
+				<option value="PHP">PHP</option>
+				<option value="Ruby">Ruby</option>
+				<option value="Swift">Swift</option>
+				<option value="React">React</option>
+				<option value="Angular">Angular</option>
+				<option value="Node.js">Node.js</option>
+				<option value="SQL">SQL</option>
+				<option value="MongoDB">MongoDB</option>
+				<option value="Git">Git</option>
+			</select>
+			<input
+				type="file"
+				name="image"
+				id="image"
+				accept=".jpg, .png, .pdf"
+				onchange="handleImageChange(event)"
+			/>
+			<input
+					type="file"
+					id="video"
+					accept="video/mp4,video/x-m4v,video/*"
+					onchange="handleVideoChange(event)"
+				/>
+		</form>
+
+
+		<button onclick="uploadVideo()" style="margin: 100px" id="uploadButton">
+			Upload video
+		</button>
+		<div class="progress">
+			<div class="color"></div>
+			<h1 style="margin-top: -60px;">Uploading...</h1>
+		  </div>
+	</body>
+</html>
+<script>
+	function check() {
+		document.querySelector(".progress").style.display="block";
+	}
+	var image = null;
+	var video = null;
+
+	function handleImageChange(event) {
+		const file = event.target.files?.[0];
+		if (file) {
+			console.log(file);
+			const reader = new FileReader();
+			reader.onloadend = () => {
+				image = reader.result;
+				document.querySelector("img").src = `${image}`;
+			};
+			reader.readAsDataURL(file);
+		} else {
+			console.log("Couldn't find file " + file);
+		}
+	}
+
+	function handleVideoChange(event) {
+		const file = event.target.files?.[0];
+		if (file) {
+			const reader = new FileReader();
+			reader.onloadend = () => {
+				video = reader.result;
+				// Set the video source to the data URL
+				document.querySelector("video").src = `${reader.result}`;
+			};
+			reader.readAsDataURL(file);
+		} else {
+			console.log("Couldn't find file " + file);
+		}
+	}
+
+	async function uploadVideo() {
+		const imageInput = document.getElementById("image");
+		const image = imageInput.files[0];
+
+		const videoInput = document.getElementById("video");
+		const video = videoInput.files[0];
+
+		const name = document.getElementById("name");
+		const description = document.getElementById("description");
+		const category = document.getElementById("category");
+
+		const formData = new FormData();
+		formData.append("image", image);
+		formData.append("video", video);
+		formData.append("name", name.value);
+		formData.append("description", description.value);
+		formData.append("category", category.value)
+		formData.append("adminID", "64b8cfc31a909908e2165c79")
+		formData.append("creatorName", "ashik")
+		formData.append("email", "ashiqur999999@gmail.com")
+
+		await uploadFinalVideo(formData);
+	}
+
+	async function uploadFinalVideo(formData) {
+		try {
+		const response = await fetch("http://localhost:8080/video/upload/video", {
+			method: "POST",
+			body: formData,
+		});
+		const data = await response.json();
+		console.log(data); 
+		} catch (error) {
+		console.error("Error:", error);
+		}
+
+	}
+</script>
