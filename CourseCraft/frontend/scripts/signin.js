@@ -237,7 +237,7 @@ function signUpFunction() {
 	<button id="otpButton">Submit</button>`;
 	popup.classList.remove("openpopup");
 
-	fetch("https://gleaming-stockings-bull.cyclic.app/user/register", {
+	fetch("https://cobalt-blue-shrimp-suit.cyclic.app/user/register", {
 		method: "POST",
 		headers: {
 			"Content-Type": "application/json",
@@ -341,7 +341,7 @@ function signInFunction() {
 		password: signinPassword.value,
 	};
 
-	fetch("https://gleaming-stockings-bull.cyclic.app/user/login", {
+	fetch("https://cobalt-blue-shrimp-suit.cyclic.app/user/login", {
 		method: "POST",
 		headers: {
 			"Content-Type": "application/json",
@@ -351,21 +351,24 @@ function signInFunction() {
 		.then((res) => res.json())
 		.then((res) => {
 			popup.innerHTML = `<h1>OTP VARIFICATION</h1>
-	<h3>YOUR OTP IS:- <span id="otp">0000</span></h3>
+				<h3>YOUR OTP IS:- <span id="otp">0000</span></h3>
 
-	<div id="otpInput">
-		<h3>Enter Your OTP</h3>
-		<input type="number" id="otpInput1" maxlength="1"/>
-		<input type="number" id="otpInput2" maxlength="1"/>
-		<input type="number" id="otpInput3" maxlength="1"/>
-		<input type="number" id="otpInput4" maxlength="1"/>
-	</div>
-	<button id="otpButton">Submit</button>`;
+				<div id="otpInput">
+					<h3>Enter Your OTP</h3>
+					<input type="number" id="otpInput1" maxlength="1"/>
+					<input type="number" id="otpInput2" maxlength="1"/>
+					<input type="number" id="otpInput3" maxlength="1"/>
+					<input type="number" id="otpInput4" maxlength="1"/>
+				</div>
+				<button id="otpButton">Submit</button>`;
 			popup.classList.remove("openpopup");
 			if (!res.isError) {
 				localStorage.setItem("token", res.token);
 				let user = res.user;
-				user.tag = `@${user.name.split(" ")[0]}${Math.floor(1000 + Math.random() * 9000)}`
+				console.log(res);
+				user.tag = `@${user.name.split(" ")[0]}${Math.floor(
+					1000 + Math.random() * 9000
+				)}`;
 				localStorage.setItem("userInfo", JSON.stringify(user));
 				customAlert(
 					true,
@@ -461,7 +464,7 @@ function forgetPasswordFunction() {
 		email: signinEmail.value,
 	};
 
-	fetch("https://gleaming-stockings-bull.cyclic.app/user/forgot_password", {
+	fetch("https://cobalt-blue-shrimp-suit.cyclic.app/user/forgot_password", {
 		method: "POST",
 		headers: {
 			"Content-Type": "application/json",

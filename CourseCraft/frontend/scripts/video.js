@@ -119,7 +119,7 @@ getVideo(id);
 
 // getVideo("64bb930940206df54cf027af")
 function getVideo(id) {
-	const url = `https://gleaming-stockings-bull.cyclic.app/video/get/video/${id}`;
+	const url = `https://cobalt-blue-shrimp-suit.cyclic.app/video/get/video/${id}`;
 
 	fetch(url)
 		.then((response) => response.json())
@@ -149,7 +149,7 @@ function displayVideo(video) {
 }
 
 function getRelatableVideo(skill) {
-	const url = `https://gleaming-stockings-bull.cyclic.app/video/get/byCategories?categories=${skill}`;
+	const url = `https://cobalt-blue-shrimp-suit.cyclic.app/video/get/byCategories?categories=${skill}`;
 
 	fetch(url)
 		.then((response) => response.json())

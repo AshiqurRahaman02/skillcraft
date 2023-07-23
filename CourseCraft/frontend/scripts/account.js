@@ -6,8 +6,10 @@ if (userDetails) {
 		userDetails.name[0].toUpperCase() +
 		userDetails.name.split("").splice(1).join("");
 
-	document.querySelector(".profile_pic_div > h2").innerHTML = `${userDetails.tag}`
-}else{
+	document.querySelector(
+		".profile_pic_div > h2"
+	).innerHTML = `${userDetails.tag}`;
+} else {
 	window.location.href = "../pages/signin.html";
 }
 
@@ -71,16 +73,15 @@ const showPlans = () => {
 	document.querySelector("#bottomNav").style.display = "block";
 };
 
-
 if (!userDetails) {
 	window.location.href = "../pages/signin.html";
 }
 const userID = userDetails._id;
 const email = userDetails.email;
 const userName = userDetails.name;
-document.getElementById("name").innerText = userName
-document.getElementById("email").innerText = email
-console.log(userName)
+document.getElementById("name").innerText = userName;
+document.getElementById("email").innerText = email;
+console.log(userName);
 var activeSection = "";
 
 const params = new URLSearchParams(window.location.search);
@@ -94,8 +95,7 @@ if (activeParam === "video") {
 	console.log("Some other value is active.");
 } else {
 	console.log("Default state.");
-	displayAccount()
-	
+	displayAccount();
 }
 function displayAccount() {
 	if (activeSection !== "account") {
@@ -106,7 +106,6 @@ function displayAccount() {
 		document.getElementById("subscribe").style.display = "none";
 		document.getElementById("plans").style.display = "none";
 		document.getElementById("notifications").style.display = "none";
-
 	}
 }
 
@@ -114,14 +113,16 @@ function displayVideos() {
 	if (activeSection !== "videos") {
 		document.getElementById("videos").style.display = "block";
 		activeSection = "videos";
-		
+
 		document.getElementById("account").style.display = "none";
 		document.getElementById("subscribe").style.display = "none";
 		document.getElementById("plans").style.display = "none";
 		document.getElementById("notifications").style.display = "none";
 
 		// get user video
-		fetch(`https://gleaming-stockings-bull.cyclic.app/video/get/videos/${userID}`)
+		fetch(
+			`https://cobalt-blue-shrimp-suit.cyclic.app/video/get/videos/${userID}`
+		)
 			.then((response) => response.json())
 			.then((data) => {
 				displayAllVideos(data.videos);
@@ -133,15 +134,15 @@ function displayVideos() {
 }
 function displayAllVideos(data) {
 	console.log(data);
-	data.reverse()
+	data.reverse();
 	let html = "";
 
 	data.forEach((video) => {
 		let title = video.name;
-        let maxLength = 14;
-        if (title.length > maxLength) {
-            title = title.substring(0, maxLength) + "...";
-        }
+		let maxLength = 14;
+		if (title.length > maxLength) {
+			title = title.substring(0, maxLength) + "...";
+		}
 		html += `
               <div class="video_box" >
                 <div class="video_thumbnail"  onclick="openVideo('${video._id}')">
@@ -173,41 +174,43 @@ function openVideo(id) {
 	let url = "../pages/video.html?id=" + id;
 	window.location.href = url;
 }
-async function deleteVideo(title,id) {
-	if(confirm(`Are you sure you want to delete ${title}`)){
+async function deleteVideo(title, id) {
+	if (confirm(`Are you sure you want to delete ${title}`)) {
 		try {
-			const response = await fetch(`https://gleaming-stockings-bull.cyclic.app/video/delete/${id}`, {
-			  method: "DELETE",
-			});
-		
-			const data = await response.json();
-		
-			if (response.ok) {
-			  console.log(data.message);
-			  window.location.reload();
+			const response = await fetch(
+				`https://cobalt-blue-shrimp-suit.cyclic.app/video/delete/${id}`,
+				{
+					method: "DELETE",
+				}
+			);
 
+			const data = await response.json();
+
+			if (response.ok) {
+				console.log(data.message);
+				window.location.reload();
 			} else {
-			  console.error(data.message); 
+				console.error(data.message);
 			}
-		  } catch (error) {
+		} catch (error) {
 			console.error("Error:", error);
-		  }
-	}else{
+		}
+	} else {
 		return;
 	}
-  }
-  
-  function logout(){
+}
+
+function logout() {
 	window.localStorage.removeItem("userInfo");
 	window.localStorage.removeItem("token");
-	window.location.href = "../pages/signin.html"
-  }
+	window.location.href = "../pages/signin.html";
+}
 
 function displaySubscribers() {
 	if (activeSection !== "subscribe") {
 		document.getElementById("subscribe").style.display = "block";
 		activeSection = "subscribe";
-		
+
 		document.getElementById("account").style.display = "none";
 		document.getElementById("videos").style.display = "none";
 		document.getElementById("plans").style.display = "none";
@@ -219,7 +222,7 @@ function displayPlans() {
 	if (activeSection !== "plans") {
 		document.getElementById("plans").style.display = "block";
 		activeSection = "plans";
-		
+
 		document.getElementById("account").style.display = "none";
 		document.getElementById("subscribe").style.display = "none";
 		document.getElementById("videos").style.display = "none";
@@ -231,14 +234,13 @@ function displayNotifications() {
 	if (activeSection !== "notifications") {
 		document.getElementById("notifications").style.display = "block";
 		activeSection = "notifications";
-		
+
 		document.getElementById("account").style.display = "none";
 		document.getElementById("subscribe").style.display = "none";
 		document.getElementById("plans").style.display = "none";
 		document.getElementById("videos").style.display = "none";
 	}
 }
-
 
 var image = null;
 var video = null;
@@ -293,34 +295,35 @@ async function uploadVideo() {
 		formData.append("description", description);
 		formData.append("category", category);
 		formData.append("adminID", userID);
-		formData.append("creatorName",userName );
+		formData.append("creatorName", userName);
 		formData.append("email", email);
 
-		document.getElementById("popup").style.filter = "blur(20px)";
-		document.querySelector(".pro").style.display = "block";
-
-		setTimeout(() => {}, 5000);
-		setTimeout(() => {
-			confirm(`Video uploaded successfully.
-		You will receive an email notification when your video goes live. It usually takes less than a minute.`);
-			uploadFinalVideo(formData);
-		}, 10000);
+		uploadFinalVideo(formData);
 	} else {
-		console.log(image , video , title , description , category)
+		console.log(image, video, title, description, category);
 		alert("Please enter valid information");
 	}
 }
 
 async function uploadFinalVideo(formData) {
+	document.getElementById("popup").style.filter = "blur(20px)";
+	document.querySelector(".pro").style.display = "block";
+
 	try {
-		const response = await fetch("https://gleaming-stockings-bull.cyclic.app/video/upload/video", {
+		const response = await fetch("https://skillcraftbackend.onrender.com/video/upload/video", {
 			method: "POST",
 			body: formData,
 		});
 		const data = await response.json();
 		console.log(data);
+
+		confirm(`Video uploaded successfully.
+		Our servers are highly optimized, so it usually takes less than a minute for your data to be live.`);
+		window.location.reload();
+		// You will receive an email notification when your video goes live.
 	} catch (error) {
 		console.error("Error:", error);
+		window.location.reload();
 	}
 }
 
