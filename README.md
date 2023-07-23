@@ -1,9 +1,12 @@
 # gas-scarecrow-3264 
 <h2>Skillcraft Website - Learn and Create Courses Content</h2>
+Welcome to <b>Skillcraft</b>, a website dedicated to helping you learn and improve your HTML and CSS skills. Whether you are a beginner looking to get started or an experienced developer seeking to refine your skills, Skillcraft has something to offer for everyone. 
 
 
-Welcome to <b>Skillcraft</b>, a website dedicated to helping you learn and improve your HTML and CSS skills. Whether you are a beginner looking to get started or an experienced developer seeking to refine your skills, Skillcraft has something to offer for everyone.
-C:\Users\Dell\Pictures\Screenshots\Screenshot (175).png
+
+<h2>Team Members</h2> 
+  
+
 <h2>Table of Contents</h2>
 Introduction
 Features
