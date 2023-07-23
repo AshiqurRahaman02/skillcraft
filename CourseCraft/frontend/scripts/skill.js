@@ -185,7 +185,7 @@ function getvideos() {
 
 function fetchVideosByCategories(categories) {
 	console.log(categories);
-	const url = `http://localhost:8080/video/get/byCategories?categories=${categories}`;
+	const url = `https://gleaming-stockings-bull.cyclic.app/video/get/byCategories?categories=${categories}`;
 
 	fetch(url)
 		.then((response) => response.json())
@@ -266,7 +266,7 @@ function openVideo(id) {
 
 setTimeout(() => {
 	let cat = [];
-	const url = `http://localhost:8080/video/get/byCategories?categories=${cat}`;
+	const url = `https://gleaming-stockings-bull.cyclic.app/video/get/byCategories?categories=${cat}`;
 
 	fetch(url)
 		.then((response) => response.json())
