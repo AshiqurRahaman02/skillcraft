@@ -2,19 +2,19 @@
 <h2>Skillcraft Website - Learn and Create Courses Content</h2>
 Skillcraft Logo
 
-Welcome to <h3>Skillcraft</h3>, a website dedicated to helping you learn and improve your HTML and CSS skills. Whether you are a beginner looking to get started or an experienced developer seeking to refine your skills, Skillcraft has something to offer for everyone.
+Welcome to <b>Skillcraft</b>, a website dedicated to helping you learn and improve your HTML and CSS skills. Whether you are a beginner looking to get started or an experienced developer seeking to refine your skills, Skillcraft has something to offer for everyone.
 
-Table of Contents
+<h2>Table of Contents</h2>
 Introduction
 Features
 Getting Started
 Contributing
 Feedback
 License
-Introduction
+<h2>Introduction</h2>
 Skillcraft is an online platform that provides interactive tutorials, hands-on exercises, and projects to help you learn and master HTML and CSS. Our mission is to make web development accessible and enjoyable for all learners. From understanding the basics to creating stunning web pages, Skillcraft is your companion on your learning journey.
 
-Features
+<h2>Features</h2>
 Interactive Tutorials: Engaging and interactive tutorials that guide you through the concepts of HTML and CSS step-by-step.
 
 Hands-On Exercises: Practice what you've learned with a series of hands-on exercises that reinforce your knowledge.
@@ -27,7 +27,7 @@ Personalized Learning: Track your progress, earn badges, and receive personalize
 
 Responsive Design: Access Skillcraft from any device, ensuring a seamless learning experience on desktop, tablet, or mobile.
 
-Getting Started
+<h2>Getting Started</h2>
 To get started with Skillcraft and start learning HTML and CSS, follow these simple steps:
 
 Create an Account: Sign up for a free account on the Skillcraft website.
@@ -51,5 +51,5 @@ Submit a pull request with a detailed description of the changes.
 
 Our team will review your contribution, and if everything looks good, we'll merge it into the main branch.
 
-Feedback
+<h2>Feedback</h2> 
 We value your feedback! If you have any suggestions, questions, or concerns, please don't hesitate to reach out to us. You can contact us through the community forum or email us at feedback@skillcraft.com.
