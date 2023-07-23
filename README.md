@@ -5,8 +5,14 @@ Welcome to <b>Skillcraft</b>, a website dedicated to helping you learn and impro
 
 
 <h2>Team Members</h2> 
-  
 
+  ## Deployed Link
+- [Vercel](https://skillcraft-f8v0xegx6-bhavya022.vercel.app) 
+
+- [render](https://skillcraftbackend.onrender.com/)
+
+## Tech Stacks
+![](https://skillicons.dev/icons?i=html,css,js,nodejs,express,mongo )
 <h2>Table of Contents</h2>
 Introduction
 Features
