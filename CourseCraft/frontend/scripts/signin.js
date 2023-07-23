@@ -237,7 +237,7 @@ function signUpFunction() {
 	<button id="otpButton">Submit</button>`;
 	popup.classList.remove("openpopup");
 
-	fetch("http://localhost:8080/user/register", {
+	fetch("https://gleaming-stockings-bull.cyclic.app/user/register", {
 		method: "POST",
 		headers: {
 			"Content-Type": "application/json",
@@ -341,7 +341,7 @@ function signInFunction() {
 		password: signinPassword.value,
 	};
 
-	fetch("http://localhost:8080/user/login", {
+	fetch("https://gleaming-stockings-bull.cyclic.app/user/login", {
 		method: "POST",
 		headers: {
 			"Content-Type": "application/json",
@@ -461,7 +461,7 @@ function forgetPasswordFunction() {
 		email: signinEmail.value,
 	};
 
-	fetch("http://localhost:8080/user/forgot_password", {
+	fetch("https://gleaming-stockings-bull.cyclic.app/user/forgot_password", {
 		method: "POST",
 		headers: {
 			"Content-Type": "application/json",

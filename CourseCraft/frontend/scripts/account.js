@@ -121,7 +121,7 @@ function displayVideos() {
 		document.getElementById("notifications").style.display = "none";
 
 		// get user video
-		fetch(`http://localhost:8080/video/get/videos/${userID}`)
+		fetch(`https://gleaming-stockings-bull.cyclic.app/video/get/videos/${userID}`)
 			.then((response) => response.json())
 			.then((data) => {
 				displayAllVideos(data.videos);
@@ -176,7 +176,7 @@ function openVideo(id) {
 async function deleteVideo(title,id) {
 	if(confirm(`Are you sure you want to delete ${title}`)){
 		try {
-			const response = await fetch(`http://localhost:8080/video/delete/${id}`, {
+			const response = await fetch(`https://gleaming-stockings-bull.cyclic.app/video/delete/${id}`, {
 			  method: "DELETE",
 			});
 		
@@ -313,7 +313,7 @@ async function uploadVideo() {
 
 async function uploadFinalVideo(formData) {
 	try {
-		const response = await fetch("http://localhost:8080/video/upload/video", {
+		const response = await fetch("https://gleaming-stockings-bull.cyclic.app/video/upload/video", {
 			method: "POST",
 			body: formData,
 		});
