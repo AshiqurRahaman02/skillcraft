@@ -123,6 +123,9 @@ p {
 	justify-content: space-between;
 	gap: 15px;
 }
+#oAuth a{
+	color: white;
+}
 .google-btn,
 .github-btn {
 	width: max-content;
@@ -170,7 +173,7 @@ p {
 	left: 450px;
 }
 #signup a {
-	color: #004aad;
+	/* color: #ffffff; */
 }
 
 .popup {

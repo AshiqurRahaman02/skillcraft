@@ -405,7 +405,7 @@ form>label{
   width: 0px;
   height: 5px;
   border-radius: 15px;
-  animation: progres 15s  linear;    
+  animation: progres 40s infinite linear;    
 }
 @keyframes progres{
   0%{
@@ -418,7 +418,7 @@ form>label{
       width: 70%;
   }
   75%{
-      width: 85%;
+      width: 90%;
   }
   100%{
       width: 100%;
