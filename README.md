@@ -1,8 +1,8 @@
 # gas-scarecrow-3264 
-Skillcraft Website - Learn and Create Courses Content
+<h2>Skillcraft Website - Learn and Create Courses Content</h2>
 Skillcraft Logo
 
-Welcome to Skillcraft, a website dedicated to helping you learn and improve your HTML and CSS skills. Whether you are a beginner looking to get started or an experienced developer seeking to refine your skills, Skillcraft has something to offer for everyone.
+Welcome to <h3>Skillcraft</h3>, a website dedicated to helping you learn and improve your HTML and CSS skills. Whether you are a beginner looking to get started or an experienced developer seeking to refine your skills, Skillcraft has something to offer for everyone.
 
 Table of Contents
 Introduction
