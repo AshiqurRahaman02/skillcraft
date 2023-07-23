@@ -7,7 +7,21 @@ body {
 		radial-gradient(farthest-side at bottom right, #42f4fa93, transparent),
 		radial-gradient(farthest-corner at bottom left, #dc1976, transparent);
 	overflow-x: hidden;
+} 
+.login-with a{
+    border: 1px solid rgb(223, 221, 221);
+    border-radius: 30px;
+    padding:8px;
+    width:25px;
+    margin: 4px 5px;
+    height:25px;
 }
+.login-with a img{
+    width:18px;
+    height:18px;
+    margin-bottom: -3px;
+}
+
 main {
 	display: flex;
 }
