@@ -411,13 +411,6 @@ header > div:nth-child(2) > div > img {
 	aspect-ratio: 3/2;
 	object-fit: contain;
 
-  height: max-content;
-  background: radial-gradient(farthest-side at top left, #1b1834, transparent),
-    radial-gradient(farthest-side at top right, #dc19779f, transparent 500px),
-    radial-gradient(farthest-side at bottom right, #42f4fa93, transparent),
-    radial-gradient(farthest-corner at bottom left, #dc1976, transparent);
-  text-align: center;
-  padding: 50px 0px;
 }
 header > div:nth-child(1) {
   width: 94%;
