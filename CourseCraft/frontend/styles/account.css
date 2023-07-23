@@ -147,6 +147,9 @@ main {
 
 /* Videos Section */
 
+#videos{
+  width: 93%;
+}
 .videos_container {
   display: flex;
   flex-direction: column;
@@ -154,10 +157,13 @@ main {
   height: fit-content;
   border-radius: 10px;
 }
+#parent{
+  max-height: 60vh;
+  overflow: hidden;
+  overflow-y: auto;
+}
 .video_box {
   display: flex;
-
-  /* flex-direction: column; */
   width: 100%;
   margin-left: 30px;
   padding: 10px;
@@ -175,7 +181,7 @@ main {
 .video_nameAndbtn {
   display: flex;
   margin-left: 20px;
-  width: 60%;
+  width: 50%;
   justify-content: space-between;
 }
 .titleName  {
