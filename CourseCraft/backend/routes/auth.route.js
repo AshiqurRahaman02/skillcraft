@@ -68,7 +68,7 @@ passport.use(
 		{
 			clientID: GOOGLE_CLIENT_ID,
 			clientSecret: GOOGLE_CLIENT_SECRET,
-			callbackURL: "https://gleaming-stockings-bull.cyclic.app/auth/google/callback",
+			callbackURL: "https://cobalt-blue-shrimp-suit.cyclic.app/auth/google/callback",
 			passReqToCallback: true,
 		},
 		async function (request, accessToken, refreshToken, profile, done) {
