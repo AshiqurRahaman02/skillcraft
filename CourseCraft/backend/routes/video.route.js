@@ -71,8 +71,8 @@ videoRouter.post("/upload/video", async (req, res) => {
     };
 
     // Send the email
-    const emailResponse = await sendEmail(details);
-    console.log("Email sent:", emailResponse);
+    // const emailResponse = await sendEmail(details);
+    // console.log("Email sent:", emailResponse);
 
     res.status(201).json({
       isError: false,
