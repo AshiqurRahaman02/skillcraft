@@ -70,7 +70,8 @@ Responsibilities:
 
 - Upload Functionality
 
-<img src="https://github.com/AshiqurRahaman02/gas-scarecrow-3264/assets/119414454/75ba9554-dda8-4f3c-b29c-00c4cb34bb8a" width="70%">
+
+<img src="https://github.com/AshiqurRahaman02/gas-scarecrow-3264/assets/119414454/d0989dd6-ba6b-4f67-b818-3ec68b0e66f2" width="70%">
 
 
 - Sign Up Page
